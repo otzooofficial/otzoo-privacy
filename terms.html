@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — Otzoo</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple: #4527A0;
+    --purple-dark: #2D0C57;
+    --purple-light: #EDE7F6;
+    --amber: #FFD700;
+    --text: #1A1A2E;
+    --muted: #6B7280;
+    --border: #E5E7EB;
+    --bg: #F8F9FD;
+    --white: #ffffff;
+    --red: #DC2626;
+    --red-light: #FEF2F2;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  header {
+    background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+    padding: 60px 20px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -40px;
+    width: 250px; height: 250px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .brand {
+    font-size: 36px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: 6px;
+    margin-bottom: 6px;
+  }
+
+  .amber-bar {
+    width: 50px; height: 3px;
+    background: var(--amber);
+    border-radius: 10px;
+    margin: 0 auto 20px;
+  }
+
+  header h1 {
+    font-size: 22px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 8px;
+  }
+
+  header p {
+    color: rgba(255,255,255,0.55);
+    font-size: 13px;
+  }
+
+  .nav-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 16px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    transition: all 0.2s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    background: rgba(255,255,255,0.15);
+    color: white;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+
+  .updated-bar {
+    background: var(--purple-light);
+    border-left: 4px solid var(--purple);
+    padding: 12px 18px;
+    border-radius: 0 8px 8px 0;
+    font-size: 13px;
+    color: var(--purple);
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .important-notice {
+    background: var(--red-light);
+    border: 2px solid var(--red);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 30px;
+  }
+
+  .important-notice h3 {
+    color: var(--red);
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .important-notice p {
+    color: #7F1D1D;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .section {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 28px 30px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+    transition: box-shadow 0.2s;
+  }
+
+  .section:hover {
+    box-shadow: 0 4px 20px rgba(69,39,160,0.08);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .section-icon {
+    width: 40px; height: 40px;
+    background: var(--purple-light);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .section h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--purple);
+  }
+
+  .section p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .section p:last-child { margin-bottom: 0; }
+
+  .section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .section ul li {
+    color: var(--muted);
+    font-size: 14px;
+    padding: 6px 0;
+    padding-left: 20px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section ul li:last-child { border-bottom: none; }
+
+  .section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--purple);
+    font-weight: 700;
+    font-size: 12px;
+  }
+
+  .section ul.cross-list li::before {
+    content: '✗';
+    color: var(--red);
+  }
+
+  .highlight {
+    background: linear-gradient(135deg, var(--purple-light), #F3E5F5);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-top: 12px;
+    border: 1px solid rgba(69,39,160,0.15);
+  }
+
+  .highlight p {
+    color: var(--purple) !important;
+    font-weight: 600;
+    font-size: 13px !important;
+    margin: 0 !important;
+  }
+
+  .warning-box {
+    background: #FFF8E1;
+    border-left: 4px solid #F59E0B;
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin-top: 12px;
+  }
+
+  .warning-box p {
+    color: #92400E !important;
+    font-weight: 600;
+    font-size: 13px !important;
+    margin: 0 !important;
+  }
+
+  .danger-box {
+    background: var(--red-light);
+    border-left: 4px solid var(--red);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin-top: 12px;
+  }
+
+  .danger-box p {
+    color: #7F1D1D !important;
+    font-weight: 600;
+    font-size: 13px !important;
+    margin: 0 !important;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    margin-top: 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  th {
+    background: var(--purple-light);
+    color: var(--purple);
+    font-weight: 700;
+    padding: 12px 16px;
+    text-align: left;
+  }
+
+  td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+  }
+
+  tr:last-child td { border-bottom: none; }
+
+  tr:nth-child(even) td { background: #FAFAFA; }
+
+  .contact-section {
+    background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+    border-radius: 16px;
+    padding: 28px 30px;
+    margin-top: 24px;
+    text-align: center;
+  }
+
+  .contact-section h2 {
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .contact-section p {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  .contact-email {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: background 0.2s;
+  }
+
+  .contact-email:hover {
+    background: rgba(255,255,255,0.25);
+  }
+
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--muted);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+    background: white;
+  }
+
+  footer span { color: var(--purple); font-weight: 600; }
+
+  @media (max-width: 600px) {
+    .section { padding: 20px 18px; }
+    .brand { font-size: 28px; }
+    header h1 { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">OTZOO</div>
+  <div class="amber-bar"></div>
+  <h1>Terms of Service</h1>
+  <p>Real-Time Local Truth Platform</p>
+  <div class="nav-links">
+    <a href="index.html">Privacy Policy</a>
+    <a href="terms.html" class="active">Terms of Service</a>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="updated-bar">
+    📅 Last Updated: May 2026 &nbsp;|&nbsp; Effective Date: May 19, 2026
+  </div>
+
+  <!-- Critical Notice -->
+  <div class="important-notice">
+    <h3>⚠️ IMPORTANT — PLEASE READ BEFORE USING OTZOO</h3>
+    <p>These Terms of Service constitute a legally binding agreement between you and Otzoo. By creating an account, purchasing a subscription, or applying to the Growth Partner Program, you agree to be bound by these terms in their entirety. <strong>All subscription payments are non-refundable.</strong> Growth Partner commissions are subject to admin approval and may be withheld or forfeited for violations. If you do not agree to these terms, do not use the application.</p>
+  </div>
+
+  <!-- 1. Definitions -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">📖</div>
+      <h2>1. Definitions</h2>
+    </div>
+    <p>In these Terms of Service, the following terms have the meanings set out below:</p>
+    <ul>
+      <li><strong>"Otzoo" / "Company" / "We" / "Us"</strong> — refers to the Otzoo platform and its operators, based in Dehradun, Uttarakhand, India.</li>
+      <li><strong>"Application" / "App"</strong> — the Otzoo Android application and all associated services.</li>
+      <li><strong>"User"</strong> — any person who downloads, installs, or uses the Otzoo application.</li>
+      <li><strong>"Business Owner"</strong> — a User who registers a business listing on the platform.</li>
+      <li><strong>"Subscription"</strong> — a paid plan (Starter, Growth, or Pro) purchased by a Business Owner to access premium listing features.</li>
+      <li><strong>"Growth Partner"</strong> — an approved individual who participates in the Otzoo Growth Partner Program and earns commissions for referring businesses.</li>
+      <li><strong>"Growth Share" / "Commission"</strong> — the monetary reward paid to a Growth Partner upon successful referral of a paying Business Owner.</li>
+      <li><strong>"Payout"</strong> — the transfer of accumulated commission balance from Otzoo to a Growth Partner's registered bank account.</li>
+      <li><strong>"Partner ID"</strong> — the unique referral code (format: GP000001) assigned to each approved Growth Partner.</li>
+      <li><strong>"Content"</strong> — any text, images, business information, or other material uploaded or shared by Users on the platform.</li>
+    </ul>
+  </div>
+
+  <!-- 2. Acceptance -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">✅</div>
+      <h2>2. Acceptance of Terms</h2>
+    </div>
+    <p>By accessing or using the Otzoo application, you confirm that:</p>
+    <ul>
+      <li>You are at least 18 years of age</li>
+      <li>You have the legal capacity to enter into a binding contract</li>
+      <li>You have read and understood these Terms of Service and our Privacy Policy</li>
+      <li>You agree to be legally bound by these terms</li>
+      <li>You will comply with all applicable local, state, national, and international laws</li>
+    </ul>
+    <p>If you are using Otzoo on behalf of a business entity, you represent that you have the authority to bind that entity to these terms.</p>
+  </div>
+
+  <!-- 3. Account Registration -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">👤</div>
+      <h2>3. Account Registration &amp; Responsibilities</h2>
+    </div>
+    <p>To use Otzoo, you must create an account using Google Sign-In. By registering, you agree to:</p>
+    <ul>
+      <li>Provide accurate, complete, and current information</li>
+      <li>Maintain the security of your account credentials</li>
+      <li>Promptly notify us of any unauthorised access to your account</li>
+      <li>Take full responsibility for all activity that occurs under your account</li>
+      <li>Not create multiple accounts or share your account with others</li>
+      <li>Not impersonate another person or entity</li>
+    </ul>
+    <p>Otzoo reserves the right to suspend or permanently delete accounts that violate these terms, without prior notice and without liability.</p>
+  </div>
+
+  <!-- 4. Subscriptions -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">💳</div>
+      <h2>4. Subscription Plans &amp; Payment</h2>
+    </div>
+    <p>Otzoo offers the following annual subscription plans for Business Owners:</p>
+
+    <div class="table-container">
+      <table>
+        <tr>
+          <th>Plan</th>
+          <th>Price (India)</th>
+          <th>Billing</th>
+          <th>Access</th>
+        </tr>
+        <tr>
+          <td><strong>Free</strong></td>
+          <td>₹0</td>
+          <td>—</td>
+          <td>Basic listing features</td>
+        </tr>
+        <tr>
+          <td><strong>Starter</strong></td>
+          <td>₹149/year</td>
+          <td>Annual</td>
+          <td>Enhanced listing features</td>
+        </tr>
+        <tr>
+          <td><strong>Growth</strong></td>
+          <td>₹399/year</td>
+          <td>Annual</td>
+          <td>Advanced features + analytics</td>
+        </tr>
+        <tr>
+          <td><strong>Pro</strong></td>
+          <td>₹499/year</td>
+          <td>Annual</td>
+          <td>Full feature access + priority support</td>
+        </tr>
+      </table>
+    </div>
+
+    <p style="margin-top: 14px;">Pricing for users outside India may vary based on local currency and market conditions. All prices are displayed in your local currency before payment confirmation.</p>
+
+    <p>Payments are processed securely by <strong>Razorpay</strong>. By completing a payment, you authorise Otzoo to charge the applicable amount through your selected payment method. Subscriptions are activated immediately upon successful payment verification.</p>
+
+    <div class="danger-box">
+      <p>🚫 NO REFUND POLICY: All subscription payments made to Otzoo are final and non-refundable under any circumstances, including but not limited to: change of mind, non-use of the subscription, technical issues on the user's device, accidental purchase, or dissatisfaction with features. By completing payment, you expressly acknowledge and agree to this no-refund policy.</p>
+    </div>
+  </div>
+
+  <!-- 5. Subscription Terms -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">📅</div>
+      <h2>5. Subscription Duration, Renewal &amp; Cancellation</h2>
+    </div>
+    <ul>
+      <li>All paid subscriptions are valid for one (1) calendar year from the date of activation</li>
+      <li>Subscriptions do <strong>not</strong> auto-renew — you must manually renew before expiry to continue premium access</li>
+      <li>Upon expiry, your account will revert to the Free plan automatically — your listing data will be retained</li>
+      <li>Otzoo reserves the right to modify subscription pricing with at least 30 days' advance notice to existing subscribers</li>
+      <li>Modified pricing will apply to renewals — existing active subscriptions will not be affected mid-term</li>
+      <li>Otzoo reserves the right to discontinue any plan with reasonable notice — affected subscribers will receive a proportional credit at Otzoo's sole discretion</li>
+    </ul>
+    <div class="warning-box">
+      <p>⚠️ Subscription benefits (enhanced listing visibility, analytics, features) are available only during the active subscription period. Expiry of a subscription does not entitle the user to any refund of the subscription fee paid.</p>
+    </div>
+  </div>
+
+  <!-- 6. Business Listings -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🏪</div>
+      <h2>6. Business Listings &amp; Content</h2>
+    </div>
+    <p>Business Owners may create listings on Otzoo subject to the following conditions:</p>
+    <ul>
+      <li>All listing information must be accurate, truthful, and kept up to date</li>
+      <li>You must have the legal right to list and operate the business described</li>
+      <li>Listing content must not be misleading, defamatory, or violate any third-party rights</li>
+      <li>Images uploaded must be original or properly licensed — no copyrighted material without permission</li>
+      <li>Adult content, illegal services, or prohibited goods may not be listed on Otzoo</li>
+    </ul>
+    <p>By uploading content to Otzoo, you grant Otzoo a non-exclusive, royalty-free, worldwide licence to display, reproduce, and distribute that content within the application for the purpose of operating the platform.</p>
+    <p>Otzoo reserves the right to remove any listing or content that violates these terms, without prior notice and without liability.</p>
+  </div>
+
+  <!-- 7. Growth Partner Program -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🤝</div>
+      <h2>7. Otzoo Growth Partner Program</h2>
+    </div>
+    <p>The Otzoo Growth Partner Program allows approved individuals to earn commissions by referring businesses to subscribe to paid Otzoo plans. Participation in the program is subject to the following terms:</p>
+
+    <p><strong>7.1 Eligibility</strong></p>
+    <ul>
+      <li>Applicants must be at least 18 years of age</li>
+      <li>A valid bank account in the applicant's name is mandatory for payout processing</li>
+      <li>Valid government-issued identity proof and tax identification document are required</li>
+      <li>Otzoo reserves the sole right to approve or reject any Growth Partner application without providing reasons</li>
+      <li>Approval is at Otzoo's absolute discretion and is not guaranteed</li>
+    </ul>
+
+    <p style="margin-top:12px;"><strong>7.2 Commission Structure</strong></p>
+    <div class="table-container">
+      <table>
+        <tr>
+          <th>Plan</th>
+          <th>Plan Price</th>
+          <th>Growth Share (Commission)</th>
+        </tr>
+        <tr>
+          <td><strong>Starter</strong></td>
+          <td>₹149/year</td>
+          <td>₹50 per subscription</td>
+        </tr>
+        <tr>
+          <td><strong>Growth</strong></td>
+          <td>₹399/year</td>
+          <td>₹120 per subscription</td>
+        </tr>
+        <tr>
+          <td><strong>Pro</strong></td>
+          <td>₹499/year</td>
+          <td>₹150 per subscription</td>
+        </tr>
+      </table>
+    </div>
+    <p style="margin-top: 10px; font-size: 13px; color: var(--muted);">Commissions are payable only for base annual subscription plans. Add-on purchases, boost credits, and promotional plans do not qualify for commission.</p>
+
+    <p style="margin-top:12px;"><strong>7.3 Commission Approval</strong></p>
+    <ul>
+      <li>All commissions are initially recorded as "Pending" in your dashboard</li>
+      <li>Commissions are subject to admin review and approval before being credited to your available balance</li>
+      <li>Otzoo reserves the right to withhold, reject, or cancel any commission that appears fraudulent, invalid, or in violation of these terms</li>
+      <li>Commissions will be rejected if the referral is found to be self-referral, fake registration, or obtained through misrepresentation</li>
+      <li>Approved commissions are credited to your available balance automatically</li>
+    </ul>
+
+    <p style="margin-top:12px;"><strong>7.4 Payout Policy</strong></p>
+    <ul>
+      <li>Payouts are available only when your available balance reaches the minimum threshold of <strong>₹500</strong></li>
+      <li>Payout requests must be submitted manually through the app — payouts are not automatic</li>
+      <li>Payouts are processed within 3–5 business days of admin approval</li>
+      <li>Payouts are transferred only to the bank account registered at the time of application</li>
+      <li>Otzoo is not responsible for delays caused by banking intermediaries, incorrect bank details provided by the partner, or force majeure events</li>
+      <li>Payout processing fees, if any, will be borne by the Growth Partner</li>
+      <li>Otzoo reserves the right to withhold payouts pending investigation of suspected fraud or violations</li>
+    </ul>
+
+    <p style="margin-top:12px;"><strong>7.5 Tax Obligations</strong></p>
+    <ul>
+      <li>Growth Partners are responsible for declaring and paying applicable taxes on commissions received</li>
+      <li>Otzoo will deduct TDS (Tax Deducted at Source) as required under Indian income tax law where applicable</li>
+      <li>Otzoo will issue TDS certificates (Form 16A) as required by law</li>
+      <li>Otzoo is not responsible for a Growth Partner's personal tax compliance obligations</li>
+    </ul>
+
+    <div class="danger-box">
+      <p>🚫 COMMISSION NON-REFUNDABILITY: Once a commission payout has been processed and transferred to a Growth Partner's bank account, it cannot be reversed by Otzoo except in cases of confirmed fraud, erroneous payment, or legal order. Growth Partners must report any incorrect payout within 7 days of receipt.</p>
+    </div>
+  </div>
+
+  <!-- 8. Prohibited Conduct - GP -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🚫</div>
+      <h2>8. Prohibited Conduct — Growth Partner Program</h2>
+    </div>
+    <p>The following activities are strictly prohibited and will result in immediate account suspension, forfeiture of all pending and approved commissions, and potential legal action:</p>
+    <ul class="cross-list">
+      <li>Self-referrals — using your own Partner ID to subscribe to a paid plan</li>
+      <li>Creating fake or duplicate user accounts to generate fraudulent commissions</li>
+      <li>Misrepresenting Otzoo's features, pricing, or subscription terms to potential referrals</li>
+      <li>Sharing your Partner ID on spam platforms, bulk messaging services, or unsolicited communications</li>
+      <li>Paying or incentivising others to use your referral code through cash, gifts, or other consideration not authorised by Otzoo</li>
+      <li>Circumventing the commission system through any technical or non-technical means</li>
+      <li>Providing false or forged identity or bank documents during the application process</li>
+      <li>Operating multiple Growth Partner accounts for the same individual</li>
+    </ul>
+    <div class="danger-box">
+      <p>🚫 Otzoo reserves the right to pursue civil and criminal remedies against individuals engaged in fraudulent activity, including recovery of commissions paid out as a result of fraud.</p>
+    </div>
+  </div>
+
+  <!-- 9. Suspension & Termination -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">⛔</div>
+      <h2>9. Account Suspension &amp; Termination</h2>
+    </div>
+    <p>Otzoo reserves the right to suspend or permanently terminate any user account or Growth Partner account at its sole discretion, including but not limited to the following circumstances:</p>
+    <ul>
+      <li>Violation of any provision of these Terms of Service</li>
+      <li>Fraudulent activity, misrepresentation, or provision of false information</li>
+      <li>Abusive, threatening, or inappropriate conduct towards Otzoo staff or other users</li>
+      <li>Inactivity for an extended period</li>
+      <li>Legal requirements or court orders</li>
+      <li>Actions deemed harmful to Otzoo's platform, reputation, or other users</li>
+    </ul>
+    <p>Upon suspension or termination:</p>
+    <ul>
+      <li>Access to the account will be immediately revoked</li>
+      <li>For Growth Partners: all pending (unapproved) commissions will be forfeited</li>
+      <li>For Growth Partners: approved but unpaid commissions may be withheld pending investigation, and may be permanently forfeited if the suspension is due to fraudulent activity</li>
+      <li>Business listing data may be retained for a period as outlined in our Privacy Policy</li>
+    </ul>
+    <div class="warning-box">
+      <p>⚠️ Otzoo is not obligated to provide reasons for account suspension or termination. No refund of subscription fees will be made in the event of account suspension or termination due to policy violations.</p>
+    </div>
+  </div>
+
+  <!-- 10. Prohibited Use -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🔒</div>
+      <h2>10. General Prohibited Use</h2>
+    </div>
+    <p>Users must not use the Otzoo platform to:</p>
+    <ul class="cross-list">
+      <li>Upload or share illegal, defamatory, obscene, or harmful content</li>
+      <li>Harass, threaten, or abuse other users or Otzoo staff</li>
+      <li>Attempt to gain unauthorised access to the platform or other users' data</li>
+      <li>Interfere with or disrupt the platform's infrastructure or servers</li>
+      <li>Use automated bots, scrapers, or tools to extract data without written permission</li>
+      <li>Reverse-engineer or decompile any part of the application</li>
+      <li>Resell or sublicense access to the platform without written authorisation</li>
+      <li>Violate any applicable local, national, or international laws or regulations</li>
+    </ul>
+  </div>
+
+  <!-- 11. Intellectual Property -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">©️</div>
+      <h2>11. Intellectual Property</h2>
+    </div>
+    <p>All intellectual property rights in the Otzoo application, including but not limited to software, design, trademarks, logos, and proprietary content, are owned exclusively by Otzoo. Nothing in these Terms grants you any right to use Otzoo's intellectual property without express written permission.</p>
+    <p>You retain ownership of the content you upload to Otzoo (business information, photos, etc.), but grant Otzoo a licence to use such content for operating and promoting the platform as described in Section 6.</p>
+  </div>
+
+  <!-- 12. Disclaimer -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">⚠️</div>
+      <h2>12. Disclaimer of Warranties</h2>
+    </div>
+    <p>The Otzoo application is provided on an <strong>"as is" and "as available"</strong> basis, without warranties of any kind, express or implied, including but not limited to:</p>
+    <ul>
+      <li>Warranties of merchantability or fitness for a particular purpose</li>
+      <li>Uninterrupted, error-free, or secure operation of the platform</li>
+      <li>Accuracy, completeness, or reliability of any content or information on the platform</li>
+      <li>The platform being free from viruses or other harmful components</li>
+    </ul>
+    <p>Otzoo does not guarantee any specific business outcome, revenue, or commission earnings for Growth Partners. Commission amounts depend on successful referrals and are subject to admin approval.</p>
+  </div>
+
+  <!-- 13. Limitation of Liability -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🛡️</div>
+      <h2>13. Limitation of Liability</h2>
+    </div>
+    <p>To the maximum extent permitted by applicable law, Otzoo shall not be liable for:</p>
+    <ul>
+      <li>Any indirect, incidental, special, consequential, or punitive damages</li>
+      <li>Loss of profits, revenue, data, goodwill, or business opportunities</li>
+      <li>Damages arising from your reliance on information provided by other users on the platform</li>
+      <li>Interruptions, delays, or failures in the platform's operation</li>
+      <li>Actions taken by third-party payment processors, banks, or service providers</li>
+      <li>Loss or damage resulting from unauthorised access to your account due to your own failure to maintain account security</li>
+    </ul>
+    <p>In no event shall Otzoo's total liability to you for any claims arising under these Terms exceed the amount you paid to Otzoo in the 3 months immediately preceding the event giving rise to the claim.</p>
+  </div>
+
+  <!-- 14. Indemnification -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">⚖️</div>
+      <h2>14. Indemnification</h2>
+    </div>
+    <p>You agree to indemnify, defend, and hold harmless Otzoo, its officers, directors, employees, agents, and successors from and against any claims, liabilities, damages, losses, costs, and expenses (including reasonable legal fees) arising from or relating to:</p>
+    <ul>
+      <li>Your use or misuse of the Otzoo application</li>
+      <li>Your violation of these Terms of Service</li>
+      <li>Your violation of any applicable law or regulation</li>
+      <li>Your listing content or any claims by third parties relating to your business listing</li>
+      <li>Fraudulent activity conducted through your account or Partner ID</li>
+    </ul>
+  </div>
+
+  <!-- 15. Dispute Resolution -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🏛️</div>
+      <h2>15. Dispute Resolution</h2>
+    </div>
+    <p><strong>15.1 Informal Resolution:</strong> Before filing any formal dispute, you agree to first contact Otzoo at otzooofficial@gmail.com and attempt to resolve the issue informally. Otzoo will make reasonable efforts to address your concerns within 30 days.</p>
+
+    <p><strong>15.2 Growth Partner Disputes:</strong> Growth Partners may raise formal disputes regarding commissions or payouts through the in-app dispute system. Otzoo will review and respond to disputes within 15 business days. Otzoo's decision on commission disputes is final and binding.</p>
+
+    <p><strong>15.3 Governing Law:</strong> These Terms of Service are governed by and construed in accordance with the laws of India, specifically the laws of the State of Uttarakhand. Any disputes that cannot be resolved informally shall be subject to the exclusive jurisdiction of the courts of Dehradun, Uttarakhand, India.</p>
+
+    <p><strong>15.4 No Class Actions:</strong> You agree to resolve disputes with Otzoo on an individual basis only. You waive any right to participate in class action lawsuits or class-wide arbitration against Otzoo.</p>
+
+    <div class="highlight">
+      <p>📧 For dispute resolution, contact: otzooofficial@gmail.com — Subject line: "Formal Dispute — [Your Account Email]"</p>
+    </div>
+  </div>
+
+  <!-- 16. Modifications -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🔄</div>
+      <h2>16. Modifications to These Terms</h2>
+    </div>
+    <p>Otzoo reserves the right to modify these Terms of Service at any time. When we make material changes:</p>
+    <ul>
+      <li>We will notify you through the application and/or via email at least 7 days before changes take effect</li>
+      <li>The "Last Updated" date at the top of this page will be updated</li>
+      <li>Continued use of the application after the effective date constitutes acceptance of the revised terms</li>
+      <li>If you do not agree to the revised terms, you must stop using the application before the effective date</li>
+    </ul>
+    <p>For material changes to the Growth Partner commission structure or payout policy, Otzoo will provide at least 30 days' advance notice. Such changes will not retroactively affect approved commissions already credited to your balance.</p>
+  </div>
+
+  <!-- 17. Severability -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">📜</div>
+      <h2>17. General Provisions</h2>
+    </div>
+    <ul>
+      <li><strong>Severability:</strong> If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall continue in full force and effect.</li>
+      <li><strong>Entire Agreement:</strong> These Terms of Service, together with the Privacy Policy, constitute the entire agreement between you and Otzoo regarding the use of the application.</li>
+      <li><strong>Waiver:</strong> Otzoo's failure to enforce any right or provision of these Terms shall not be deemed a waiver of such right or provision.</li>
+      <li><strong>Assignment:</strong> You may not assign your rights or obligations under these Terms without Otzoo's prior written consent. Otzoo may assign its rights without restriction.</li>
+      <li><strong>Force Majeure:</strong> Otzoo shall not be liable for any failure or delay in performance due to causes beyond its reasonable control, including natural disasters, government actions, internet outages, or third-party service failures.</li>
+      <li><strong>Language:</strong> These Terms are prepared in English. In the event of any conflict between an English version and a translated version, the English version shall prevail.</li>
+    </ul>
+  </div>
+
+  <!-- Contact -->
+  <div class="contact-section">
+    <h2>📬 Contact Us</h2>
+    <p>For questions about these Terms of Service, disputes, or legal matters, contact us at:</p>
+    <a href="mailto:otzooofficial@gmail.com" class="contact-email">
+      otzooofficial@gmail.com
+    </a>
+    <p style="margin-top: 16px; font-size: 12px;">
+      Otzoo · Dehradun, Uttarakhand, India<br>
+      Legal queries: please include "Legal — Terms of Service" in the subject line.
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 <span>Otzoo</span> — Real-Time Local Truth Platform. All rights reserved.</p>
+  <p style="margin-top: 6px;">Made with ❤️ in India 🇮🇳 &nbsp;|&nbsp; <a href="index.html" style="color: #4527A0; text-decoration: none; font-weight: 600;">Privacy Policy</a></p>
+</footer>
+
+</body>
+</html>
