@@ -27,7 +27,6 @@
     line-height: 1.7;
   }
 
-  /* Header */
   header {
     background: linear-gradient(135deg, var(--purple), var(--purple-dark));
     padding: 60px 20px 50px;
@@ -81,14 +80,36 @@
     font-size: 13px;
   }
 
-  /* Container */
+  .nav-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 16px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    transition: all 0.2s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    background: rgba(255,255,255,0.15);
+    color: white;
+  }
+
   .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 40px 20px 80px;
   }
 
-  /* Last updated bar */
   .updated-bar {
     background: var(--purple-light);
     border-left: 4px solid var(--purple);
@@ -100,7 +121,6 @@
     margin-bottom: 36px;
   }
 
-  /* Section */
   .section {
     background: var(--white);
     border-radius: 16px;
@@ -171,7 +191,6 @@
     font-size: 12px;
   }
 
-  /* Highlight box */
   .highlight {
     background: linear-gradient(135deg, var(--purple-light), #F3E5F5);
     border-radius: 12px;
@@ -187,7 +206,21 @@
     margin: 0 !important;
   }
 
-  /* Contact section */
+  .warning-box {
+    background: #FFF8E1;
+    border-left: 4px solid #F59E0B;
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin-top: 12px;
+  }
+
+  .warning-box p {
+    color: #92400E !important;
+    font-weight: 600;
+    font-size: 13px !important;
+    margin: 0 !important;
+  }
+
   .contact-section {
     background: linear-gradient(135deg, var(--purple), var(--purple-dark));
     border-radius: 16px;
@@ -226,7 +259,6 @@
     background: rgba(255,255,255,0.25);
   }
 
-  /* Footer */
   footer {
     text-align: center;
     padding: 30px 20px;
@@ -236,12 +268,8 @@
     background: white;
   }
 
-  footer span {
-    color: var(--purple);
-    font-weight: 600;
-  }
+  footer span { color: var(--purple); font-weight: 600; }
 
-  /* Responsive */
   @media (max-width: 600px) {
     .section { padding: 20px 18px; }
     .brand { font-size: 28px; }
@@ -251,19 +279,21 @@
 </head>
 <body>
 
-<!-- Header -->
 <header>
   <div class="brand">OTZOO</div>
   <div class="amber-bar"></div>
   <h1>Privacy Policy</h1>
   <p>Real-Time Local Truth Platform</p>
+  <div class="nav-links">
+    <a href="index.html" class="active">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </div>
 </header>
 
 <div class="container">
 
-  <!-- Last Updated -->
   <div class="updated-bar">
-    📅 Last Updated: April 2026 &nbsp;|&nbsp; Effective Date: April 21, 2026
+    📅 Last Updated: May 2026 &nbsp;|&nbsp; Effective Date: May 19, 2026
   </div>
 
   <!-- 1. Introduction -->
@@ -272,10 +302,11 @@
       <div class="section-icon">👋</div>
       <h2>1. Introduction</h2>
     </div>
-    <p>Welcome to <strong>Otzoo</strong> — a Real-Time Local Truth Platform that connects users with local shops, services, home help, and properties in their area.</p>
-    <p>This Privacy Policy explains how we collect, use, and protect your information when you use our Android application. By using Otzoo, you agree to this policy.</p>
+    <p>Welcome to <strong>Otzoo</strong> — a Real-Time Local Truth Platform that connects users with local shops, services, home help, and properties in their area. Otzoo also operates the <strong>Otzoo Growth Partner Program</strong>, which allows individuals to earn commissions by referring businesses to the platform.</p>
+    <p>This Privacy Policy explains how we collect, use, store, and protect your information when you use our Android application, including all features such as business listings, subscriptions, and the Growth Partner Program.</p>
+    <p>By downloading, installing, or using the Otzoo application, you confirm that you have read, understood, and agreed to this Privacy Policy. If you do not agree, please do not use the application.</p>
     <div class="highlight">
-      <p>🔒 We are committed to protecting your privacy. Your data is never sold to third parties.</p>
+      <p>🔒 We are committed to protecting your privacy. Your personal data is never sold to third parties for commercial purposes.</p>
     </div>
   </div>
 
@@ -285,15 +316,45 @@
       <div class="section-icon">📋</div>
       <h2>2. Information We Collect</h2>
     </div>
-    <p>We collect the following information to provide our services:</p>
+    <p>We collect the following categories of information to provide and improve our services:</p>
+
+    <p><strong>Account Information:</strong></p>
     <ul>
       <li>Full name and email address (via Google Sign-In)</li>
-      <li>Phone number (for business registration)</li>
-      <li>City and location data (for nearby search features)</li>
-      <li>Device information (for app optimization)</li>
-      <li>Business listing information (shop/service details you provide)</li>
-      <li>Usage data (app interactions, features used)</li>
-      <li>Payment information (processed securely by Razorpay — we do not store card details)</li>
+      <li>Phone number (for business registration and account verification)</li>
+      <li>Profile photo (optional, from Google account)</li>
+      <li>City and state (for localised search features)</li>
+    </ul>
+
+    <p style="margin-top:12px;"><strong>Business Listing Information:</strong></p>
+    <ul>
+      <li>Business name, category, address, and contact details</li>
+      <li>Business photos and description</li>
+      <li>Operating hours and services offered</li>
+      <li>Subscription plan details</li>
+    </ul>
+
+    <p style="margin-top:12px;"><strong>Growth Partner Information (if you apply):</strong></p>
+    <ul>
+      <li>Full name, phone number, email address, city, state</li>
+      <li>Identity documents (Aadhaar/PAN for India; equivalent government-issued ID for other countries)</li>
+      <li>Bank account details (account number, IFSC code, bank name) for payout processing</li>
+      <li>Referral activity, commission records, and payout history</li>
+    </ul>
+
+    <p style="margin-top:12px;"><strong>Technical and Usage Data:</strong></p>
+    <ul>
+      <li>Device model, OS version, app version</li>
+      <li>IP address and approximate location (country/city level)</li>
+      <li>App usage patterns and feature interactions</li>
+      <li>Crash reports and error logs</li>
+    </ul>
+
+    <p style="margin-top:12px;"><strong>Payment Information:</strong></p>
+    <ul>
+      <li>Payment transaction IDs (processed by Razorpay — we do not store card or UPI credentials)</li>
+      <li>Subscription plan purchased and date of purchase</li>
+      <li>Payout details for Growth Partners (UTR numbers, bank reference)</li>
     </ul>
   </div>
 
@@ -303,150 +364,212 @@
       <div class="section-icon">⚙️</div>
       <h2>3. How We Use Your Information</h2>
     </div>
-    <p>Your information is used to:</p>
+    <p>Your information is used solely for the following purposes:</p>
     <ul>
-      <li>Create and manage your Otzoo account</li>
-      <li>Show relevant local shops and services near you</li>
-      <li>Enable business owners to list their shops/services</li>
-      <li>Send notifications about shops you follow</li>
-      <li>Process subscription payments (Basic/Pro plans)</li>
-      <li>Improve app performance and user experience</li>
-      <li>Show relevant advertisements via Google AdMob</li>
+      <li>Creating and managing your Otzoo account</li>
+      <li>Displaying relevant local shops, services, and properties near you</li>
+      <li>Enabling business owners to create, manage, and promote their listings</li>
+      <li>Processing subscription payments and maintaining subscription records</li>
+      <li>Verifying Growth Partner applications and managing the Growth Partner Program</li>
+      <li>Calculating and processing Growth Partner commission payouts to registered bank accounts</li>
+      <li>Sending transactional notifications (payment confirmations, payout alerts, application status updates)</li>
+      <li>Sending service-related communications (app updates, policy changes)</li>
+      <li>Investigating disputes, fraud, and violations of our Terms of Service</li>
+      <li>Complying with legal obligations under applicable Indian law</li>
+      <li>Improving the app through anonymised analytics and crash reports</li>
     </ul>
-  </div>
-
-  <!-- 4. Location Data -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon">📍</div>
-      <h2>4. Location Data</h2>
+    <div class="warning-box">
+      <p>⚠️ We do not use your data for unsolicited marketing or sell it to advertisers. Growth Partner bank and identity documents are used exclusively for payout processing and KYC verification.</p>
     </div>
-    <p>Otzoo uses your location to show nearby shops, services, and properties. Location access is required for the "Nearby" feature to work properly.</p>
-    <ul>
-      <li>Location is only accessed when you use the app</li>
-      <li>We do not track your location in the background</li>
-      <li>You can deny location permission — basic features will still work</li>
-      <li>Location data is used only for local search results</li>
-    </ul>
   </div>
 
-  <!-- 5. Google Sign-In -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon">🔐</div>
-      <h2>5. Google Sign-In & Third-Party Services</h2>
-    </div>
-    <p>Otzoo uses the following third-party services:</p>
-    <ul>
-      <li><strong>Google Sign-In</strong> — for secure authentication</li>
-      <li><strong>Supabase</strong> — for database and backend services</li>
-      <li><strong>Razorpay</strong> — for payment processing (PCI-DSS compliant)</li>
-      <li><strong>Google AdMob</strong> — for displaying advertisements</li>
-      <li><strong>Firebase</strong> — for push notifications</li>
-    </ul>
-    <p>These services have their own privacy policies. We recommend reviewing them.</p>
-  </div>
-
-  <!-- 6. Data Storage -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon">🗄️</div>
-      <h2>6. Data Storage & Security</h2>
-    </div>
-    <p>Your data is stored securely on Supabase servers with industry-standard encryption. We implement the following security measures:</p>
-    <ul>
-      <li>SSL/TLS encryption for all data transmission</li>
-      <li>Secure authentication via Google OAuth 2.0</li>
-      <li>Row-level security in our database</li>
-      <li>Payment data handled by Razorpay (we never store card details)</li>
-      <li>Regular security audits and updates</li>
-    </ul>
-  </div>
-
-  <!-- 7. Data Sharing -->
+  <!-- 4. Growth Partner Data -->
   <div class="section">
     <div class="section-header">
       <div class="section-icon">🤝</div>
-      <h2>7. Data Sharing</h2>
+      <h2>4. Growth Partner Program — Data Handling</h2>
     </div>
-    <p>We do <strong>not sell</strong> your personal data. We may share data only in these cases:</p>
+    <p>The Otzoo Growth Partner Program requires additional sensitive data to facilitate commission payouts. By applying to the program, you expressly consent to the following:</p>
     <ul>
-      <li>With service providers who help us operate the app (listed above)</li>
-      <li>When required by law or legal proceedings</li>
-      <li>To protect the rights and safety of our users</li>
-      <li>Business listing information is publicly visible to other users (as intended)</li>
+      <li>Your identity documents (Aadhaar, PAN, or equivalent) are collected solely for KYC verification purposes as required under applicable financial regulations</li>
+      <li>Your bank account details are stored securely and used only for processing commission payouts to your registered account</li>
+      <li>Your referral activity, earnings, and payout records are maintained for accounting, audit, and dispute resolution purposes</li>
+      <li>Otzoo reserves the right to share your KYC and financial data with regulatory authorities if required by law</li>
+      <li>Your identity and bank documents are stored in encrypted form on Supabase servers and are accessible only to authorised Otzoo administrators</li>
+      <li>Commission records are retained for a minimum of 7 years as required under Indian financial regulations</li>
+    </ul>
+    <div class="highlight">
+      <p>🔒 Growth Partner documents are never shared with third parties for commercial purposes. Access is restricted to verified Otzoo administrators for approval and payout processing only.</p>
+    </div>
+  </div>
+
+  <!-- 5. Location Data -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">📍</div>
+      <h2>5. Location Data</h2>
+    </div>
+    <p>Otzoo uses your device location to display nearby shops, services, and properties. Location access is required for core features of the application to function correctly.</p>
+    <ul>
+      <li>Location is accessed only while you are actively using the app — we do not track location in the background</li>
+      <li>Your precise location coordinates are not stored on our servers — only city/area level data is retained</li>
+      <li>You may deny location permission; basic app features will remain accessible</li>
+      <li>Location data is never used for advertising profiling or sold to third parties</li>
     </ul>
   </div>
 
-  <!-- 8. User Rights -->
+  <!-- 6. Third-Party Services -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🔐</div>
+      <h2>6. Third-Party Services</h2>
+    </div>
+    <p>Otzoo uses the following third-party services to operate the application. Each has its own Privacy Policy which we recommend reviewing:</p>
+    <ul>
+      <li><strong>Google Sign-In</strong> — Secure authentication. Google Privacy Policy applies.</li>
+      <li><strong>Supabase</strong> — Database, file storage, and backend services. Data stored on Supabase EU/US servers with encryption at rest.</li>
+      <li><strong>Razorpay</strong> — Payment processing for subscriptions and Growth Partner payouts (PCI-DSS compliant). We never store card, UPI, or net banking credentials.</li>
+      <li><strong>Google AdMob</strong> — Advertisement display on the free tier. AdMob may collect device identifiers for ad personalisation.</li>
+      <li><strong>Firebase (Google)</strong> — Push notifications for app alerts and partner notifications.</li>
+    </ul>
+    <p>Otzoo is not responsible for the privacy practices of these third-party services. We select partners who maintain industry-standard security practices.</p>
+  </div>
+
+  <!-- 7. Data Storage & Security -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🗄️</div>
+      <h2>7. Data Storage &amp; Security</h2>
+    </div>
+    <p>We implement robust technical and organisational measures to protect your data:</p>
+    <ul>
+      <li>All data transmission is encrypted using SSL/TLS protocols</li>
+      <li>Authentication is handled via Google OAuth 2.0 — passwords are never stored by Otzoo</li>
+      <li>Database access is governed by Row-Level Security (RLS) policies — users can only access their own data</li>
+      <li>Growth Partner documents are stored in a private, access-controlled Supabase Storage bucket</li>
+      <li>Admin access to sensitive data is restricted to verified Otzoo team members only</li>
+      <li>Payment processing is fully delegated to Razorpay — no financial credentials are stored on Otzoo servers</li>
+    </ul>
+    <div class="warning-box">
+      <p>⚠️ While we employ industry-standard security measures, no internet-based system is 100% secure. In the event of a data breach affecting your personal information, we will notify you as required by applicable law.</p>
+    </div>
+  </div>
+
+  <!-- 8. Data Sharing -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">📤</div>
+      <h2>8. Data Sharing &amp; Disclosure</h2>
+    </div>
+    <p>We do <strong>not sell</strong> your personal data. We may disclose data only in the following limited circumstances:</p>
+    <ul>
+      <li>To authorised service providers (Razorpay, Supabase, Firebase, Google) strictly for operating the app — governed by data processing agreements</li>
+      <li>To regulatory or law enforcement authorities when required by applicable Indian law, court order, or legal process</li>
+      <li>To protect the rights, safety, and property of Otzoo, its users, or the public</li>
+      <li>In the event of a merger, acquisition, or sale of assets — you will be notified before your data is transferred</li>
+    </ul>
+    <p>Business listing information you publish on Otzoo is publicly visible to other app users — this is the intended purpose of the listing feature.</p>
+  </div>
+
+  <!-- 9. User Rights -->
   <div class="section">
     <div class="section-header">
       <div class="section-icon">⚖️</div>
-      <h2>8. Your Rights</h2>
+      <h2>9. Your Rights</h2>
     </div>
-    <p>You have the following rights regarding your data:</p>
+    <p>You have the following rights regarding your personal data:</p>
     <ul>
-      <li>Access your personal data at any time</li>
-      <li>Update or correct your profile information</li>
-      <li>Delete your account and all associated data</li>
-      <li>Opt-out of marketing notifications</li>
-      <li>Request a copy of your data</li>
+      <li><strong>Access:</strong> Request a copy of the personal data we hold about you</li>
+      <li><strong>Correction:</strong> Update or correct inaccurate information in your profile</li>
+      <li><strong>Deletion:</strong> Request deletion of your account and associated personal data. Note: Financial and commission records for Growth Partners are retained for the legally required period even after account deletion.</li>
+      <li><strong>Portability:</strong> Request your data in a portable format</li>
+      <li><strong>Objection:</strong> Opt out of non-essential communications</li>
+      <li><strong>Withdrawal of Consent:</strong> Withdraw consent for optional data processing at any time</li>
     </ul>
     <div class="highlight">
-      <p>📧 To exercise any of these rights, contact us at otzooofficial@gmail.com</p>
+      <p>📧 To exercise any of these rights, email us at otzooofficial@gmail.com with the subject line "Data Request". We will respond within 30 days.</p>
     </div>
   </div>
 
-  <!-- 9. Advertisements -->
+  <!-- 10. Advertisements -->
   <div class="section">
     <div class="section-header">
       <div class="section-icon">📢</div>
-      <h2>9. Advertisements</h2>
+      <h2>10. Advertisements</h2>
     </div>
-    <p>Otzoo displays advertisements powered by Google AdMob. These ads may be personalized based on your interests. AdMob may collect device identifiers and usage data for ad targeting.</p>
+    <p>Otzoo displays advertisements via Google AdMob on the free tier. Paid subscribers and Growth Partners may see reduced or no advertisements based on their plan.</p>
     <ul>
-      <li>You can opt out of personalized ads in your device settings</li>
-      <li>We comply with Google AdMob policies</li>
-      <li>Ad revenue helps us keep the app free for users</li>
+      <li>AdMob may use device identifiers and usage data for personalised ad targeting</li>
+      <li>You can opt out of personalised ads via your device settings (Google Settings → Ads → Opt out of Ads Personalisation)</li>
+      <li>Otzoo does not allow advertisers to access your personal data directly</li>
+      <li>Otzoo products are not influenced by advertiser relationships — ad placement does not affect listing rankings</li>
     </ul>
   </div>
 
-  <!-- 10. Children's Privacy -->
+  <!-- 11. Retention -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🗓️</div>
+      <h2>11. Data Retention</h2>
+    </div>
+    <p>We retain your data for the following periods:</p>
+    <ul>
+      <li><strong>Account data:</strong> Until you delete your account, plus 90 days for backup purposes</li>
+      <li><strong>Business listing data:</strong> Until the listing is deleted or the account is closed</li>
+      <li><strong>Payment transaction records:</strong> 7 years as required under Indian financial regulations</li>
+      <li><strong>Growth Partner commission and payout records:</strong> 7 years as required under applicable tax and financial laws</li>
+      <li><strong>KYC documents (Aadhaar, PAN, etc.):</strong> For the duration of the Growth Partner relationship plus 7 years</li>
+      <li><strong>Activity logs and audit trails:</strong> 2 years for security and dispute resolution purposes</li>
+    </ul>
+  </div>
+
+  <!-- 12. Children -->
   <div class="section">
     <div class="section-header">
       <div class="section-icon">👶</div>
-      <h2>10. Children's Privacy</h2>
+      <h2>12. Children's Privacy</h2>
     </div>
-    <p>Otzoo is not intended for children under 13 years of age. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us immediately.</p>
+    <p>Otzoo is not intended for persons under 18 years of age. The Growth Partner Program requires applicants to be at least 18 years old. We do not knowingly collect personal information from minors. If you believe a minor has provided us with personal information, please contact us immediately and we will delete such data.</p>
   </div>
 
-  <!-- 11. Changes to Policy -->
+  <!-- 13. International Users -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🌏</div>
+      <h2>13. International Users</h2>
+    </div>
+    <p>Otzoo is operated from India and serves users in multiple countries. By using the app, international users consent to their data being processed and stored in accordance with Indian data protection laws and Supabase's data processing terms. We make reasonable efforts to ensure your data is handled in compliance with applicable local laws in your country.</p>
+    <p>Payment processing and Growth Partner payouts are currently available only in India (processed via Razorpay in INR). International users may use the app's listing and discovery features.</p>
+  </div>
+
+  <!-- 14. Changes -->
   <div class="section">
     <div class="section-header">
       <div class="section-icon">🔄</div>
-      <h2>11. Changes to This Policy</h2>
+      <h2>14. Changes to This Policy</h2>
     </div>
-    <p>We may update this Privacy Policy from time to time. We will notify you of any significant changes through the app or via email. Continued use of Otzoo after changes constitutes acceptance of the updated policy.</p>
+    <p>We may update this Privacy Policy from time to time to reflect changes in our practices, services, or legal requirements. When we make material changes, we will notify you through the app or via email at least 7 days before the changes take effect. The "Last Updated" date at the top of this page will always reflect the most recent revision.</p>
+    <p>Continued use of Otzoo after the effective date of any changes constitutes your acceptance of the updated Privacy Policy.</p>
   </div>
 
   <!-- Contact -->
   <div class="contact-section">
     <h2>📬 Contact Us</h2>
-    <p>Questions about this privacy policy? We're here to help.</p>
+    <p>For privacy-related questions, data requests, or concerns, contact us at:</p>
     <a href="mailto:otzooofficial@gmail.com" class="contact-email">
       otzooofficial@gmail.com
     </a>
     <p style="margin-top: 16px; font-size: 12px;">
-      Otzoo · Dehradun, Uttarakhand, India
+      Otzoo · Dehradun, Uttarakhand, India<br>
+      We aim to respond to all privacy queries within 30 days.
     </p>
   </div>
 
 </div>
 
-<!-- Footer -->
 <footer>
   <p>© 2026 <span>Otzoo</span> — Real-Time Local Truth Platform. All rights reserved.</p>
-  <p style="margin-top: 6px;">Made with ❤️ in India 🇮🇳</p>
+  <p style="margin-top: 6px;">Made with ❤️ in India 🇮🇳 &nbsp;|&nbsp; <a href="terms.html" style="color: #4527A0; text-decoration: none; font-weight: 600;">Terms of Service</a></p>
 </footer>
 
 </body>
