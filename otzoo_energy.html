@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OTZOO Energy — India's Unified EV Charging Platform</title>
+<meta name="description" content="Discover, book and pay for EV charging across all networks from one app. 30,000+ stations, community reliability scores, host your charger.">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --purple: #4527A0;
+  --purple-dark: #2D0C57;
+  --purple-mid: #5533B5;
+  --purple-light: #6B2FA0;
+  --amber: #FFD700;
+  --amber-dark: #F59E0B;
+  --green: #27AE60;
+  --white: #ffffff;
+  --bg: #F8F9FD;
+  --text: #1A1A2E;
+  --muted: #6B7280;
+  --border: #E5E7EB;
+  --ev-green: #00C853;
+  --ev-orange: #FF6D00;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(45,12,87,0.96);
+  backdrop-filter: blur(12px);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.nav-brand-text {
+  font-size: 20px;
+  font-weight: 900;
+  color: white;
+  letter-spacing: 4px;
+}
+
+.nav-energy-badge {
+  background: var(--amber);
+  color: var(--purple-dark);
+  font-size: 9px;
+  font-weight: 900;
+  padding: 3px 8px;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--amber); }
+
+.nav-back {
+  color: rgba(255,255,255,0.5) !important;
+  font-size: 12px !important;
+}
+
+.nav-cta {
+  background: var(--ev-green) !important;
+  color: white !important;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-weight: 700 !important;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0D0D1A 0%, #1A0A2E 40%, #2D0C57 70%, #4527A0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 20px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated grid lines */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(107,47,160,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(107,47,160,0.08) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Glow orbs */
+.hero-orb1 {
+  position: absolute;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(107,47,160,0.3) 0%, transparent 70%);
+  top: -100px; right: -100px;
+}
+
+.hero-orb2 {
+  position: absolute;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,200,83,0.15) 0%, transparent 70%);
+  bottom: -50px; left: -50px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+
+.ev-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0,200,83,0.1);
+  border: 1px solid rgba(0,200,83,0.3);
+  padding: 8px 20px;
+  border-radius: 25px;
+  margin-bottom: 28px;
+}
+
+.ev-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--ev-green);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(0,200,83,0.4); }
+  50% { transform: scale(1.3); opacity: 0.8; box-shadow: 0 0 0 8px rgba(0,200,83,0); }
+}
+
+.ev-live-badge span {
+  color: var(--ev-green);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 6vw, 68px);
+  font-weight: 900;
+  color: white;
+  line-height: 1.05;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.hero h1 .gold { color: var(--amber); }
+.hero h1 .green { color: var(--ev-green); }
+
+.hero p {
+  font-size: clamp(15px, 2vw, 18px);
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 40px;
+  line-height: 1.7;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--amber);
+  color: var(--purple-dark);
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 15px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 8px 30px rgba(255,215,0,0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(255,215,0,0.4);
+}
+
+.btn-ev {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0,200,83,0.15);
+  color: var(--ev-green);
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  border: 1px solid rgba(0,200,83,0.3);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btn-ev:hover {
+  background: rgba(0,200,83,0.25);
+  transform: translateY(-3px);
+}
+
+/* Stats */
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hstat {
+  text-align: center;
+}
+
+.hstat-num {
+  font-size: 32px;
+  font-weight: 900;
+  color: white;
+  line-height: 1;
+}
+
+.hstat-num.gold { color: var(--amber); }
+.hstat-num.green { color: var(--ev-green); }
+
+.hstat-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+/* ── PROTOCOL BANNER ── */
+.protocol-banner {
+  background: linear-gradient(90deg, var(--purple-dark), var(--purple-light), var(--purple-dark));
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid rgba(255,215,0,0.2);
+  border-bottom: 1px solid rgba(255,215,0,0.2);
+}
+
+.protocol-banner p {
+  color: rgba(255,255,255,0.8);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.protocol-banner span { color: var(--amber); }
+
+/* ── STATS STRIP ── */
+.stats-strip {
+  background: white;
+  padding: 30px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.stat-item { text-align: center; }
+.stat-num {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--purple);
+}
+.stat-num.green { color: var(--ev-green); }
+.stat-label {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* ── SECTION BASE ── */
+.section {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-tag {
+  display: inline-block;
+  background: var(--purple);
+  color: white;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.section-tag.green { background: var(--ev-green); }
+.section-tag.amber { background: var(--amber); color: var(--purple-dark); }
+
+.section-title {
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 900;
+  color: var(--text);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.section-title span { color: var(--purple); }
+.section-title span.green { color: var(--ev-green); }
+.section-title span.amber { color: var(--amber-dark); }
+
+.section-sub {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+/* ── FEATURES GRID ── */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.feature-card {
+  background: white;
+  border-radius: 20px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--purple);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+.feature-card:hover::before { transform: scaleX(1); }
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(69,39,160,0.1);
+}
+
+.feature-card.ev-card::before { background: var(--ev-green); }
+
+.feature-icon {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 18px;
+}
+
+.feature-card h3 {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.feature-tag {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.tag-purple { background: #EDE7F6; color: var(--purple); }
+.tag-green { background: #E8F5E9; color: var(--green); }
+.tag-amber { background: #FFF8E1; color: #E65100; }
+.tag-red { background: #FCE4EC; color: #C62828; }
+
+/* ── ARCHITECTURE ── */
+.arch-section {
+  background: linear-gradient(135deg, #0A0A14, #1A0A2E, #2D0C57);
+  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.arch-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(107,47,160,0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(107,47,160,0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.arch-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.arch-inner .section-title { color: white; }
+.arch-inner .section-title span { color: var(--amber); }
+.arch-inner .section-sub { color: rgba(255,255,255,0.55); }
+
+.arch-diagram {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0;
+  align-items: center;
+}
+
+.arch-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.arch-box {
+  border: 1px solid;
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.arch-box.purple {
+  border-color: rgba(107,47,160,0.6);
+  background: rgba(107,47,160,0.15);
+  color: #C49FE0;
+}
+
+.arch-box.green {
+  border-color: rgba(0,200,83,0.4);
+  background: rgba(0,200,83,0.1);
+  color: #6FD4A0;
+}
+
+.arch-box.amber {
+  border-color: rgba(255,215,0,0.4);
+  background: rgba(255,215,0,0.1);
+  color: var(--amber);
+}
+
+.arch-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.arch-core {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--purple), var(--purple-light));
+  border: 3px solid rgba(255,215,0,0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 40px rgba(107,47,160,0.4);
+}
+
+.arch-core span:first-child { font-size: 28px; }
+.arch-core span:last-child {
+  color: white;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-top: 4px;
+}
+
+.arch-arrow {
+  color: rgba(255,215,0,0.5);
+  font-size: 20px;
+  margin: 6px 0;
+}
+
+.arch-label {
+  color: rgba(255,255,255,0.4);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.protocol-chips {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  justify-content: center;
+}
+
+.protocol-chip {
+  border: 1px solid;
+  border-radius: 25px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.chip-ocpi { border-color: rgba(107,47,160,0.6); color: #C49FE0; background: rgba(107,47,160,0.1); }
+.chip-beckn { border-color: rgba(0,200,83,0.4); color: #6FD4A0; background: rgba(0,200,83,0.1); }
+.chip-upi { border-color: rgba(255,215,0,0.4); color: var(--amber); background: rgba(255,215,0,0.1); }
+.chip-ocm { border-color: rgba(41,182,246,0.4); color: #80D8FF; background: rgba(41,182,246,0.1); }
+
+/* ── PARTNER TABLE ── */
+.partners-section {
+  padding: 80px 20px;
+  background: white;
+}
+
+.partners-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.partner-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 40px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.partner-table th {
+  background: var(--purple);
+  color: white;
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.partner-table td {
+  padding: 14px 18px;
+  font-size: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.partner-table tr:last-child td { border-bottom: none; }
+.partner-table tr:nth-child(even) td { background: var(--bg); }
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.status-live { background: #E8F5E9; color: #2E7D32; }
+.status-wait { background: #FFF8E1; color: #E65100; }
+.status-active { background: #E3F2FD; color: #1565C0; }
+.status-met { background: #EDE7F6; color: #4527A0; }
+
+/* ── HOW IT WORKS ── */
+.how-section {
+  background: linear-gradient(135deg, var(--purple-dark), var(--purple));
+  padding: 80px 20px;
+}
+
+.how-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.how-inner .section-title { color: white; }
+.how-inner .section-title span { color: var(--amber); }
+.how-inner .section-sub { color: rgba(255,255,255,0.6); margin: 0 auto; }
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.step-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 28px 20px;
+  text-align: center;
+  transition: background 0.2s;
+  position: relative;
+}
+
+.step-card:hover { background: rgba(255,255,255,0.12); }
+
+.step-num {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--amber);
+  color: var(--purple-dark);
+  font-size: 18px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.step-card h3 { color: white; font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+.step-card p { color: rgba(255,255,255,0.55); font-size: 13px; line-height: 1.6; }
+
+/* ── HOST CHARGER ── */
+.host-section {
+  padding: 80px 20px;
+  background: var(--bg);
+}
+
+.host-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.earn-card {
+  background: linear-gradient(135deg, var(--purple-dark), var(--purple-light));
+  border-radius: 24px;
+  padding: 36px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.earn-card::before {
+  content: '';
+  position: absolute;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(255,215,0,0.08);
+  top: -60px; right: -60px;
+}
+
+.earn-title {
+  font-size: 28px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.earn-subtitle {
+  color: rgba(255,255,255,0.65);
+  font-size: 14px;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+.earn-stat {
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.earn-stat-label { font-size: 13px; color: rgba(255,255,255,0.7); }
+.earn-stat-val { font-size: 18px; font-weight: 800; color: var(--amber); }
+
+.earn-commission {
+  margin-top: 20px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  text-align: center;
+}
+
+.host-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.host-step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.host-step-num {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--purple);
+  color: white;
+  font-size: 14px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.host-step-content h4 {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.host-step-content p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ── RELIABILITY ── */
+.reliability-section {
+  padding: 80px 20px;
+  background: white;
+}
+
+.reliability-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.score-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.score-card {
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.score-icon { font-size: 32px; margin-bottom: 12px; }
+.score-title { font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+.score-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+.score-bar {
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  margin: 12px 0 6px;
+  overflow: hidden;
+}
+
+.score-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--purple);
+  transition: width 1s ease;
+}
+
+.score-bar-fill.green { background: var(--ev-green); }
+.score-bar-fill.amber { background: var(--amber-dark); }
+.score-bar-fill.red { background: #E53935; }
+
+.score-pct {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--purple);
+}
+
+/* ── DATA SOURCES ── */
+.data-section {
+  background: var(--bg);
+  padding: 80px 20px;
+}
+
+.data-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.data-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.data-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.data-source {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.data-count {
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--purple);
+  line-height: 1;
+}
+
+.data-count.green { color: var(--ev-green); }
+
+.data-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.data-chip {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* ── CTA ── */
+.cta-section {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #0D0D1A, #2D0C57, #4527A0);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(107,47,160,0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(107,47,160,0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.cta-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+
+.cta-section h2 {
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 900;
+  color: white;
+  margin-bottom: 14px;
+  line-height: 1.1;
+}
+
+.cta-section h2 span { color: var(--amber); }
+.cta-section p { color: rgba(255,255,255,0.6); font-size: 16px; margin-bottom: 36px; line-height: 1.6; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--purple-dark);
+  padding: 50px 20px 30px;
+}
+
+.footer-inner { max-width: 1000px; margin: 0 auto; }
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.footer-brand .brand-name {
+  font-size: 24px;
+  font-weight: 900;
+  color: white;
+  letter-spacing: 4px;
+}
+
+.footer-energy-tag {
+  display: inline-block;
+  background: var(--amber);
+  color: var(--purple-dark);
+  font-size: 8px;
+  font-weight: 900;
+  padding: 2px 7px;
+  border-radius: 8px;
+  margin-left: 6px;
+  letter-spacing: 1px;
+}
+
+.footer-amber-line {
+  width: 40px; height: 2px;
+  background: var(--amber);
+  border-radius: 4px;
+  margin: 4px 0 10px;
+}
+
+.footer-brand p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  max-width: 220px;
+  line-height: 1.6;
+}
+
+.footer-links h4 {
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.footer-links ul { list-style: none; }
+.footer-links li { margin-bottom: 8px; }
+.footer-links a {
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--amber); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: rgba(255,255,255,0.4);
+  font-size: 12px;
+}
+
+.footer-bottom span { color: var(--amber); }
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .arch-diagram { grid-template-columns: 1fr; }
+  .arch-center { padding: 20px 0; }
+  .host-inner { grid-template-columns: 1fr; }
+  .cats-grid { grid-template-columns: repeat(2,1fr); }
+  .footer-top { flex-direction: column; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-brand">
+    <div>
+      <div class="nav-brand-text">OTZOO <span style="color:var(--amber)">⚡</span> ENERGY</div>
+      <div style="width:36px;height:2px;background:var(--ev-green);border-radius:4px;margin-top:3px;"></div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#architecture">Technology</a></li>
+    <li><a href="#host">Earn</a></li>
+    <li><a href="#partners">Partners</a></li>
+    <li><a href="index.html" class="nav-back">← OTZOO Home</a></li>
+    <li><a href="https://play.google.com/store/apps/details?id=com.otzoo.live.otzoo" class="nav-cta">Download App</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-orb1"></div>
+  <div class="hero-orb2"></div>
+  <div class="hero-content">
+    <div class="ev-live-badge">
+      <div class="ev-dot"></div>
+      <span>India's First Unified EV Charging Ecosystem</span>
+    </div>
+    <h1>
+      ⚡ OTZOO <span class="gold">Energy</span><br>
+      <span class="green">Charge Anywhere.</span><br>
+      One App.
+    </h1>
+    <p>30,000+ EV stations across India. Real-time availability. Community reliability scores. Book, pay, charge — all from OTZOO. OCPI 2.2.1 + Beckn/UEI protocol-first architecture.</p>
+    <div class="hero-btns">
+      <a href="https://play.google.com/store/apps/details?id=com.otzoo.live.otzoo" class="btn-primary">
+        📱 Download OTZOO App
+      </a>
+      <a href="#host" class="btn-ev">
+        ⚡ Earn From Your Charger →
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat">
+        <div class="hstat-num gold">30K+</div>
+        <div class="hstat-label">EV Stations</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num green">Live</div>
+        <div class="hstat-label">Real-Time Status</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num" style="color:#fff;">2</div>
+        <div class="hstat-label">Protocol Lanes</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num" style="color:#fff;">0</div>
+        <div class="hstat-label">Wallet Required</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROTOCOL BANNER -->
+<div class="protocol-banner">
+  <p>🔧 Powered by <span>OCPI 2.2.1</span> · <span>Beckn/UEI</span> · <span>Open Charge Map</span> · Built for India · Direct UPI Payments · No Proprietary Lock-in</p>
+</div>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <div class="stat-num">30,311</div>
+    <div class="stat-label">Live EV Stations</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num green">0-100</div>
+    <div class="stat-label">Reliability Score</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">OCPI 2.2.1</div>
+    <div class="stat-label">Protocol Standard</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">₹0</div>
+    <div class="stat-label">Wallet / Prepaid</div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="section">
+    <div class="section-tag">Features</div>
+    <h2 class="section-title">India Ki <span>Sabse Complete</span><br>EV Charging App</h2>
+    <p class="section-sub">Sirf stations dhundho nahi — book karo, pay karo, verify karo, aur apna charger bhi list karo!</p>
+    <div class="features-grid">
+
+      <div class="feature-card ev-card">
+        <div class="feature-icon" style="background:#E8F5E9">🗺️</div>
+        <h3>Live EV Map</h3>
+        <p>30,311 stations ka real-time map. Zoom karo — stations automatically update hote hain. Green/orange/red markers se status pata karo.</p>
+        <span class="feature-tag tag-green">Real-Time</span>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#EDE7F6">⭐</div>
+        <h3>Reliability Score</h3>
+        <p>0–100 trust score har station ko. Community verifications, owner reports, session success rate — sab milake score banta hai. OTZOO ka USP!</p>
+        <span class="feature-tag tag-purple">OTZOO Unique</span>
+      </div>
+
+      <div class="feature-card ev-card">
+        <div class="feature-icon" style="background:#E3F2FD">💳</div>
+        <h3>Direct UPI Booking</h3>
+        <p>Koi wallet nahi, koi prepaid balance nahi. Razorpay + Cashfree dual gateway. Slot book karo, seedha UPI se pay karo — CPO ke account mein.</p>
+        <span class="feature-tag tag-green">Zero Wallet</span>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#FFF8E1">🛣️</div>
+        <h3>EV Route Planner</h3>
+        <p>City A se City B — real road routing (OSRM free), route ke 10km andar charging stops automatically suggest, tap karo aur book karo.</p>
+        <span class="feature-tag tag-amber">Free OSRM Routing</span>
+      </div>
+
+      <div class="feature-card ev-card">
+        <div class="feature-icon" style="background:#E8F5E9">🏠</div>
+        <h3>Host Your Charger</h3>
+        <p>Ghar ka 16A/32A charger list karo. EV owners book karein, tu paisa kamaaye. ₹200–500 per session. OTZOO 10% commission. India first peer-to-peer EV charging!</p>
+        <span class="feature-tag tag-green">India First</span>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#FCE4EC">👥</div>
+        <h3>Community Verification</h3>
+        <p>Station pe pahuncho — popup aayega "Charger working?" Submit karo — sab ko pata chalega. False reports pe penalty, accurate reports pe rewards.</p>
+        <span class="feature-tag tag-red">Crowd-Sourced Trust</span>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#EDE7F6">📊</div>
+        <h3>Owner Dashboard</h3>
+        <p>Station owner? Web + mobile dashboard — live queue, revenue, bookings, peak hours, complaints, announcements. Reliability score visibility.</p>
+        <span class="feature-tag tag-purple">Web + Mobile</span>
+      </div>
+
+      <div class="feature-card ev-card">
+        <div class="feature-icon" style="background:#E8F5E9">🚗</div>
+        <h3>Vehicle Profiles</h3>
+        <p>Tata Nexon, Ola S1, Ather 450, MG ZS — popular Indian EVs quick-select. Range, connector type, charging speed sab saved.</p>
+        <span class="feature-tag tag-green">India EVs</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE -->
+<section id="architecture" class="arch-section">
+  <div class="arch-inner">
+    <div class="section-tag amber">Technology</div>
+    <h2 class="section-title">Protocol-First <span>Architecture</span><br>No Single Aggregator Lock-in</h2>
+    <p class="section-sub">Dono protocols ek hi Supabase table ko feed karte hain. Flutter app ko pata nahi data kahan se aaya — OCPI se ya Beckn se — dono seamlessly work karte hain.</p>
+
+    <div class="arch-diagram">
+      <div class="arch-col">
+        <div class="arch-label">OCPI 2.2.1 Lane</div>
+        <div class="arch-box purple">Pulse Energy<br><span style="font-size:10px;opacity:0.7;">Hub Model (3 weeks)</span></div>
+        <div class="arch-box purple">Statiq<br><span style="font-size:10px;opacity:0.7;">OCPI Integration</span></div>
+        <div class="arch-box purple">Tata Power EV<br><span style="font-size:10px;opacity:0.7;">Outreach Sent</span></div>
+        <div class="arch-box purple">ChargeZone / Ather<br><span style="font-size:10px;opacity:0.7;">Future Pipeline</span></div>
+      </div>
+
+      <div class="arch-center">
+        <div class="arch-arrow">⇦</div>
+        <div class="arch-core">
+          <span>⚡</span>
+          <span>ev_stations<br>Supabase</span>
+        </div>
+        <div class="arch-arrow">⇨</div>
+        <div style="color:rgba(255,255,255,0.4);font-size:10px;font-weight:700;letter-spacing:1px;text-align:center;margin-top:8px;">FLUTTER APP</div>
+      </div>
+
+      <div class="arch-col">
+        <div class="arch-label">Beckn/UEI Lane</div>
+        <div class="arch-box green">UEI Network<br><span style="font-size:10px;opacity:0.7;">NPCI (BAP Onboarding)</span></div>
+        <div class="arch-box green">Govt CPOs<br><span style="font-size:10px;opacity:0.7;">EESL, NTPC stations</span></div>
+        <div class="arch-box amber">Open Charge Map<br><span style="font-size:10px;opacity:0.7;">1,884 stations · Weekly sync</span></div>
+        <div class="arch-box amber">Host Chargers<br><span style="font-size:10px;opacity:0.7;">Peer-to-peer network</span></div>
+      </div>
+    </div>
+
+    <div class="protocol-chips">
+      <div class="protocol-chip chip-ocpi">OCPI 2.2.1 eMSP + CPO</div>
+      <div class="protocol-chip chip-beckn">Beckn/UEI BAP + BPP</div>
+      <div class="protocol-chip chip-upi">Direct UPI · Razorpay · Cashfree</div>
+      <div class="protocol-chip chip-ocm">Open Charge Map API</div>
+      <div class="protocol-chip" style="border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.05);">Flutter + Supabase + Railway</div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section id="partners" class="partners-section">
+  <div class="partners-inner">
+    <div class="section-tag">Partnerships</div>
+    <h2 class="section-title">Active <span>Partner Pipeline</span></h2>
+    <p class="section-sub">Sabse bade Indian CPOs ke saath integration chal rahi hai — OCPI 2.2.1 server Railway pe live hai!</p>
+
+    <table class="partner-table">
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Status</th>
+          <th>Protocol</th>
+          <th>Next Step</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Pulse Energy</strong></td>
+          <td><span class="status-badge status-active">⏳ 3 Weeks</span></td>
+          <td>OCPI 2.2.1 Hub</td>
+          <td>Hub model transition complete hone pe scoping call</td>
+        </tr>
+        <tr>
+          <td><strong>Bolt.Earth</strong></td>
+          <td><span class="status-badge status-active">🔄 Negotiating</span></td>
+          <td>OCPI / Discovery API</td>
+          <td>Full OCPI vs Discovery API commercial discuss</td>
+        </tr>
+        <tr>
+          <td><strong>Statiq</strong></td>
+          <td><span class="status-badge status-wait">⏳ Pending</span></td>
+          <td>OCPI 2.2.1</td>
+          <td>Technical team review in progress</td>
+        </tr>
+        <tr>
+          <td><strong>Tata Power EV</strong></td>
+          <td><span class="status-badge status-wait">📧 Outreach</span></td>
+          <td>OCPI 2.2.1</td>
+          <td>Email sent to evcharging@tatapower.com</td>
+        </tr>
+        <tr>
+          <td><strong>Gireve (Europe)</strong></td>
+          <td><span class="status-badge status-met">✅ Met</span></td>
+          <td>OCPI 2.2.1</td>
+          <td>PDF received · Future international expansion</td>
+        </tr>
+        <tr>
+          <td><strong>UEI Alliance / NPCI</strong></td>
+          <td><span class="status-badge status-active">🔄 In Progress</span></td>
+          <td>Beckn/UEI BAP</td>
+          <td>BAP onboarding — CPO onboarding ke baad</td>
+        </tr>
+        <tr>
+          <td><strong>Open Charge Map</strong></td>
+          <td><span class="status-badge status-live">✅ Live</span></td>
+          <td>REST API</td>
+          <td>1,884 stations · Weekly Wednesday 2AM auto-sync</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="how-inner">
+    <div class="section-tag" style="background:rgba(255,255,255,0.15);">How It Works</div>
+    <h2 class="section-title">Search → Book → <span>Charge</span></h2>
+    <p class="section-sub">Bilkul simple flow — ek bhi wallet nahi, ek bhi network-specific app nahi!</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3>Station Dhundo</h3>
+        <p>Map pe 30K+ stations — filter by connector type, fast charging, available now, distance.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3>Reliability Check</h3>
+        <p>Reliability Score dekho — "Confirmed 5 min ago by Otzoo User" — assured visit!</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3>Slot Book Karo</h3>
+        <p>Date + time select karo — 24x7 slots available. Duration choose karo.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <h3>UPI Se Pay Karo</h3>
+        <p>Direct UPI — koi wallet nahi. PhonePe, GPay, Paytm — sab kaam karta hai.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">5</div>
+        <h3>Charge Karo</h3>
+        <p>Navigate karo, pahuncho, charge karo. Verify karo — community ko help karo!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOST YOUR CHARGER -->
+<section id="host" class="host-section">
+  <div class="host-inner">
+    <div class="earn-card">
+      <div class="section-tag green" style="margin-bottom:16px;">⚡ Earn Money</div>
+      <div class="earn-title">Apne Charger Se<br>Paisa Kamao!</div>
+      <div class="earn-subtitle">Ghar ka 16A ya 32A charger OTZOO pe list karo. EV owners book karein, tu commission kato!</div>
+
+      <div class="earn-stat">
+        <span class="earn-stat-label">Per session earning</span>
+        <span class="earn-stat-val">₹200–500</span>
+      </div>
+      <div class="earn-stat">
+        <span class="earn-stat-label">Monthly potential</span>
+        <span class="earn-stat-val">₹6,000–15,000</span>
+      </div>
+      <div class="earn-stat">
+        <span class="earn-stat-label">OTZOO commission</span>
+        <span class="earn-stat-val">10% only</span>
+      </div>
+      <div class="earn-stat">
+        <span class="earn-stat-label">Payment</span>
+        <span class="earn-stat-val">Direct UPI</span>
+      </div>
+      <div class="earn-commission">Tu 90% rakhta hai · OTZOO sirf 10% commission</div>
+    </div>
+
+    <div>
+      <div class="section-tag" style="margin-bottom:16px;">4 Simple Steps</div>
+      <h2 class="section-title" style="margin-bottom:24px;">Charger List Karna <span>Kitna Easy Hai</span></h2>
+      <div class="host-steps">
+        <div class="host-step">
+          <div class="host-step-num">1</div>
+          <div class="host-step-content">
+            <h4>Register Karo</h4>
+            <p>OTZOO app → Earn From Charger → Start. 4-page simple form.</p>
+          </div>
+        </div>
+        <div class="host-step">
+          <div class="host-step-num">2</div>
+          <div class="host-step-content">
+            <h4>Charger Details Do</h4>
+            <p>Type (16A/32A), connector, price per kWh, timing, parking availability.</p>
+          </div>
+        </div>
+        <div class="host-step">
+          <div class="host-step-num">3</div>
+          <div class="host-step-content">
+            <h4>GPS Location Capture</h4>
+            <p>App se exact location automatic capture — map pe live ho jaata hai!</p>
+          </div>
+        </div>
+        <div class="host-step">
+          <div class="host-step-num">4</div>
+          <div class="host-step-content">
+            <h4>UPI ID Add Karo</h4>
+            <p>Har booking ke baad seedha tera UPI account mein paisa — instant!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RELIABILITY -->
+<section class="reliability-section">
+  <div class="reliability-inner">
+    <div class="section-tag">Trust System</div>
+    <h2 class="section-title">OTZOO <span class="green">Reliability Score</span> — Our Biggest USP</h2>
+    <p class="section-sub">Koi bhi app yeh nahi deta — kyunki CPO apps kabhi nahi batate ki unka charger kaam nahi kar raha!</p>
+    <div class="score-cards">
+      <div class="score-card">
+        <div class="score-icon">✅</div>
+        <div class="score-title">Successful Sessions</div>
+        <div class="score-bar"><div class="score-bar-fill green" style="width:85%"></div></div>
+        <div class="score-pct" style="color:var(--ev-green);">+2 per session</div>
+        <div class="score-desc">Completed charge = score up</div>
+      </div>
+      <div class="score-card">
+        <div class="score-icon">👥</div>
+        <div class="score-title">User Confirmations</div>
+        <div class="score-bar"><div class="score-bar-fill" style="width:70%"></div></div>
+        <div class="score-pct">+1 per verify</div>
+        <div class="score-desc">Community confirms = trust up</div>
+      </div>
+      <div class="score-card">
+        <div class="score-icon">⚠️</div>
+        <div class="score-title">Out of Service</div>
+        <div class="score-bar"><div class="score-bar-fill amber" style="width:30%"></div></div>
+        <div class="score-pct" style="color:var(--amber-dark);">-5 penalty</div>
+        <div class="score-desc">Broken report = score down</div>
+      </div>
+      <div class="score-card">
+        <div class="score-icon">🏆</div>
+        <div class="score-title">Elite Reliable</div>
+        <div class="score-bar"><div class="score-bar-fill green" style="width:95%"></div></div>
+        <div class="score-pct" style="color:var(--ev-green);">90+ Score</div>
+        <div class="score-desc">Highest trust badge</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DATA SOURCES -->
+<section class="data-section">
+  <div class="data-inner">
+    <div class="section-tag">Data Sources</div>
+    <h2 class="section-title">30,311 Stations — <span class="amber">4 Sources</span></h2>
+    <p class="section-sub">No single data dependency. Har source alag tagged hai — best data wins!</p>
+    <div class="data-grid">
+      <div class="data-card">
+        <div class="data-source">Open Charge Map</div>
+        <div class="data-count">1,884</div>
+        <div class="data-desc">Live API sync. Weekly Wednesday 2AM auto-refresh via Supabase Edge Function + pg_cron.</div>
+        <span class="data-chip tag-green">Auto Weekly Sync</span>
+      </div>
+      <div class="data-card">
+        <div class="data-source">Govt EV Data (PDF)</div>
+        <div class="data-count">26,074</div>
+        <div class="data-desc">IOCL, HPCL, BPCL dealer stations. Government PDF → tabula extract → bulk import.</div>
+        <span class="data-chip tag-purple">Govt Official</span>
+      </div>
+      <div class="data-card">
+        <div class="data-source">EV India CSV + Network</div>
+        <div class="data-count">1,692</div>
+        <div class="data-desc">Industry dataset + EV India Network crowdsourced stations. Deduped by GPS coordinates.</div>
+        <span class="data-chip tag-amber">Industry Data</span>
+      </div>
+      <div class="data-card">
+        <div class="data-source">Host Registrations</div>
+        <div class="data-count green">Growing</div>
+        <div class="data-desc">Private homeowners listing their chargers. Peer-to-peer network expanding every day.</div>
+        <span class="data-chip tag-green">Live Growing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="ev-live-badge" style="margin:0 auto 24px;">
+      <div class="ev-dot"></div>
+      <span>App Live on Play Store</span>
+    </div>
+    <h2>Ab Charge Karo <span>Smart</span> Tarike Se!</h2>
+    <p>30,000+ stations, zero wallet, real reliability scores — India ka sabse complete EV charging experience.</p>
+    <div class="hero-btns" style="justify-content:center;">
+      <a href="https://play.google.com/store/apps/details?id=com.otzoo.live.otzoo" class="btn-primary">
+        📱 Download OTZOO App
+      </a>
+      <a href="#host" class="btn-ev">
+        ⚡ List Your Charger
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-name">OTZOO<span class="footer-energy-tag">ENERGY</span></div>
+        <div class="footer-amber-line"></div>
+        <p>India's First Protocol-First Unified EV Charging Ecosystem. OCPI 2.2.1 + Beckn/UEI.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#architecture">Technology</a></li>
+          <li><a href="#host">Earn From Charger</a></li>
+          <li><a href="#partners">Partners</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>OTZOO</h4>
+        <ul>
+          <li><a href="index.html">OTZOO Home</a></li>
+          <li><a href="https://otzooofficial.github.io/otzoo-energy-dashboard/">Owner Dashboard</a></li>
+          <li><a href="https://otzooofficial.github.io/otzoo-privacy/">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:otzooofficial@gmail.com">otzooofficial@gmail.com</a></li>
+          <li><a href="#">Morena, Madhya Pradesh</a></li>
+          <li><a href="#">India 🇮🇳</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 <span>OTZOO Energy</span>. All rights reserved.</p>
+      <p>Made with ⚡ in India · OCPI 2.2.1 · Beckn/UEI</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
