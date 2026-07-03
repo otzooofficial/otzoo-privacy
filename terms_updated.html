@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — Otzoo</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple: #4527A0;
+    --purple-dark: #2D0C57;
+    --purple-light: #EDE7F6;
+    --amber: #FFD700;
+    --text: #1A1A2E;
+    --muted: #6B7280;
+    --border: #E5E7EB;
+    --bg: #F8F9FD;
+    --white: #ffffff;
+    --red: #DC2626;
+    --red-light: #FEF2F2;
+    --ev-green: #00C853;
+    --ev-green-light: #E8F5E9;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+  header { background: linear-gradient(135deg, var(--purple), var(--purple-dark)); padding: 60px 20px 50px; text-align: center; position: relative; overflow: hidden; }
+  header::before { content: ''; position: absolute; top: -60px; right: -60px; width: 300px; height: 300px; border-radius: 50%; background: rgba(255,255,255,0.04); }
+  header::after { content: ''; position: absolute; bottom: -80px; left: -40px; width: 250px; height: 250px; border-radius: 50%; background: rgba(255,255,255,0.03); }
+  .brand { font-size: 36px; font-weight: 800; color: white; letter-spacing: 6px; margin-bottom: 6px; }
+  .amber-bar { width: 50px; height: 3px; background: var(--amber); border-radius: 10px; margin: 0 auto 20px; }
+  header h1 { font-size: 22px; font-weight: 600; color: rgba(255,255,255,0.9); margin-bottom: 8px; }
+  header p { color: rgba(255,255,255,0.55); font-size: 13px; }
+  .nav-links { margin-top: 20px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 12px; font-weight: 600; padding: 6px 16px; border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; transition: all 0.2s; }
+  .nav-links a:hover, .nav-links a.active { background: rgba(255,255,255,0.15); color: white; }
+  .nav-links a.ev-link { background: rgba(0,200,83,0.15); border-color: rgba(0,200,83,0.4); color: #6FD4A0; }
+  .nav-links a.ev-link:hover { background: rgba(0,200,83,0.25); color: #00C853; }
+  .container { max-width: 800px; margin: 0 auto; padding: 40px 20px 80px; }
+  .updated-bar { background: var(--purple-light); border-left: 4px solid var(--purple); padding: 12px 18px; border-radius: 0 8px 8px 0; font-size: 13px; color: var(--purple); font-weight: 600; margin-bottom: 20px; }
+  .ev-notice { background: linear-gradient(135deg, #0D0D1A, #1A0A2E); border: 1px solid rgba(0,200,83,0.3); border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+  .ev-notice-icon { font-size: 28px; flex-shrink: 0; }
+  .ev-notice-text h4 { color: #00C853; font-size: 13px; font-weight: 800; margin-bottom: 3px; }
+  .ev-notice-text p { color: rgba(255,255,255,0.55); font-size: 12px; line-height: 1.5; }
+  .important-notice { background: var(--red-light); border: 2px solid var(--red); border-radius: 12px; padding: 18px 20px; margin-bottom: 30px; }
+  .important-notice h3 { color: var(--red); font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+  .important-notice p { color: #7F1D1D; font-size: 13px; line-height: 1.6; }
+  .section { background: var(--white); border-radius: 16px; padding: 28px 30px; margin-bottom: 16px; border: 1px solid var(--border); transition: box-shadow 0.2s; }
+  .section:hover { box-shadow: 0 4px 20px rgba(69,39,160,0.08); }
+  .section.ev-section { border-left: 4px solid var(--ev-green); }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .section-icon { width: 40px; height: 40px; background: var(--purple-light); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .section-icon.ev-icon { background: var(--ev-green-light); }
+  .section h2 { font-size: 17px; font-weight: 700; color: var(--purple); }
+  .section h2.ev-title { color: #1B5E20; }
+  .ev-tag { display: inline-block; background: var(--ev-green-light); color: #1B5E20; font-size: 9px; font-weight: 800; padding: 2px 8px; border-radius: 8px; letter-spacing: 1px; text-transform: uppercase; margin-left: 8px; vertical-align: middle; }
+  .section p { color: var(--muted); font-size: 14px; margin-bottom: 12px; }
+  .section p:last-child { margin-bottom: 0; }
+  .section ul { list-style: none; padding: 0; }
+  .section ul li { color: var(--muted); font-size: 14px; padding: 6px 0; padding-left: 20px; position: relative; border-bottom: 1px solid var(--border); }
+  .section ul li:last-child { border-bottom: none; }
+  .section ul li::before { content: '✓'; position: absolute; left: 0; color: var(--purple); font-weight: 700; font-size: 12px; }
+  .section ul.cross-list li::before { content: '✗'; color: var(--red); }
+  .section ul.ev-list li::before { color: var(--ev-green); }
+  .highlight { background: linear-gradient(135deg, var(--purple-light), #F3E5F5); border-radius: 12px; padding: 18px 20px; margin-top: 12px; border: 1px solid rgba(69,39,160,0.15); }
+  .highlight p { color: var(--purple) !important; font-weight: 600; font-size: 13px !important; margin: 0 !important; }
+  .ev-highlight { background: var(--ev-green-light); border-radius: 12px; padding: 16px 20px; margin-top: 12px; border: 1px solid rgba(0,200,83,0.25); }
+  .ev-highlight p { color: #1B5E20 !important; font-weight: 600; font-size: 13px !important; margin: 0 !important; }
+  .warning-box { background: #FFF8E1; border-left: 4px solid #F59E0B; border-radius: 0 8px 8px 0; padding: 14px 18px; margin-top: 12px; }
+  .warning-box p { color: #92400E !important; font-weight: 600; font-size: 13px !important; margin: 0 !important; }
+  .danger-box { background: var(--red-light); border-left: 4px solid var(--red); border-radius: 0 8px 8px 0; padding: 14px 18px; margin-top: 12px; }
+  .danger-box p { color: #7F1D1D !important; font-weight: 600; font-size: 13px !important; margin: 0 !important; }
+  .table-container { overflow-x: auto; margin-top: 12px; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: var(--purple-light); color: var(--purple); font-weight: 700; padding: 12px 16px; text-align: left; }
+  td { padding: 10px 16px; border-bottom: 1px solid var(--border); color: var(--muted); }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #FAFAFA; }
+  .contact-section { background: linear-gradient(135deg, var(--purple), var(--purple-dark)); border-radius: 16px; padding: 28px 30px; margin-top: 24px; text-align: center; }
+  .contact-section h2 { color: white; font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .contact-section p { color: rgba(255,255,255,0.7); font-size: 14px; margin-bottom: 16px; }
+  .contact-email { display: inline-block; background: rgba(255,255,255,0.15); color: white; padding: 10px 24px; border-radius: 25px; font-weight: 600; font-size: 14px; text-decoration: none; border: 1px solid rgba(255,255,255,0.3); transition: background 0.2s; }
+  .contact-email:hover { background: rgba(255,255,255,0.25); }
+  footer { text-align: center; padding: 30px 20px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); background: white; }
+  footer span { color: var(--purple); font-weight: 600; }
+  @media (max-width: 600px) { .section { padding: 20px 18px; } .brand { font-size: 28px; } header h1 { font-size: 18px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">OTZOO</div>
+  <div class="amber-bar"></div>
+  <h1>Terms of Service</h1>
+  <p>Real-Time Local Discovery & EV Charging Platform</p>
+  <div class="nav-links">
+    <a href="index.html">Privacy Policy</a>
+    <a href="terms.html" class="active">Terms of Service</a>
+    <a href="otzoo_energy.html" class="ev-link">⚡ OTZOO Energy</a>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="updated-bar">
+    📅 Last Updated: July 2026 &nbsp;|&nbsp; Effective Date: July 1, 2026 &nbsp;|&nbsp; ⚡ Updated to include EV Charging Terms
+  </div>
+
+  <!-- EV Notice -->
+  <div class="ev-notice">
+    <div class="ev-notice-icon">⚡</div>
+    <div class="ev-notice-text">
+      <h4>EV Charging Terms Added — July 2026</h4>
+      <p>These Terms now include OTZOO Energy EV Charging terms: slot bookings, Host Your Charger program, car verification, UPI payments for EV sessions, reliability score system, and OCPI/Beckn integration policies.</p>
+    </div>
+  </div>
+
+  <div class="important-notice">
+    <h3>⚠️ IMPORTANT — PLEASE READ BEFORE USING OTZOO</h3>
+    <p>These Terms of Service constitute a legally binding agreement between you and Otzoo. By creating an account, purchasing a subscription, booking an EV charging slot, registering as a Host Charger, or applying to the Growth Partner Program, you agree to be bound by these terms in their entirety. <strong>All subscription and EV charging payments are non-refundable.</strong> If you do not agree to these terms, do not use the application.</p>
+  </div>
+
+  <!-- 1. Definitions -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">📖</div>
+      <h2>1. Definitions</h2>
+    </div>
+    <p>In these Terms of Service, the following terms have the meanings set out below:</p>
+    <ul>
+      <li><strong>"Otzoo" / "Company" / "We" / "Us"</strong> — the Otzoo platform and its operators, based in Morena, Madhya Pradesh, India.</li>
+      <li><strong>"Application" / "App"</strong> — the OTZOO Android application and all associated services including OTZOO Energy.</li>
+      <li><strong>"User"</strong> — any person who downloads, installs, or uses the Otzoo application.</li>
+      <li><strong>"Business Owner"</strong> — a User who registers a business listing on the platform.</li>
+      <li><strong>"Subscription"</strong> — a paid plan purchased by a Business Owner to access premium listing features.</li>
+      <li><strong>"Growth Partner"</strong> — an approved individual who participates in the Otzoo Growth Partner Program.</li>
+      <li><strong>"OTZOO Energy"</strong> — OTZOO's EV charging platform, including station discovery, slot booking, Host Your Charger, and route planner.</li>
+      <li><strong>"EV Station"</strong> — an electric vehicle charging station listed on OTZOO, sourced from Open Charge Map, government datasets, CPO partners, or host registrations.</li>
+      <li><strong>"Charging Slot"</strong> — a reserved time period at an EV station booked by a User through the OTZOO app.</li>
+      <li><strong>"Host Charger"</strong> — a private EV charger registered by a homeowner or individual on OTZOO Energy for peer-to-peer charging.</li>
+      <li><strong>"Host"</strong> — a User who registers their personal EV charger on OTZOO Energy via the "Earn From Your Charger" feature.</li>
+      <li><strong>"Booking User"</strong> — a User who books a Charging Slot at a station or Host Charger.</li>
+      <li><strong>"Reliability Score"</strong> — a 0–100 community-driven trust score calculated for each EV station based on user verifications, reviews, and session success rates.</li>
+      <li><strong>"CPO"</strong> — Charge Point Operator; a commercial EV charging network partner (e.g. Pulse Energy, Statiq, Tata Power EV).</li>
+      <li><strong>"OCPI"</strong> — Open Charge Point Interface, version 2.2.1, the technical protocol used by OTZOO to integrate with CPO partners.</li>
+      <li><strong>"Content"</strong> — any text, images, business information, or other material uploaded or shared by Users.</li>
+    </ul>
+  </div>
+
+  <!-- 2. Acceptance -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">✅</div>
+      <h2>2. Acceptance of Terms</h2>
+    </div>
+    <p>By accessing or using the Otzoo application, you confirm that:</p>
+    <ul>
+      <li>You are at least 18 years of age</li>
+      <li>You have the legal capacity to enter into a binding contract</li>
+      <li>You have read and understood these Terms of Service and our Privacy Policy</li>
+      <li>You agree to be legally bound by these terms</li>
+      <li>You will comply with all applicable local, state, national, and international laws</li>
+      <li>⚡ For Host Charger registration: you own or have explicit permission to use and share the charger listed</li>
+    </ul>
+  </div>
+
+  <!-- 3. Account Registration -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">👤</div>
+      <h2>3. Account Registration &amp; Responsibilities</h2>
+    </div>
+    <p>To use Otzoo, you must create an account using Google Sign-In. By registering, you agree to:</p>
+    <ul>
+      <li>Provide accurate, complete, and current information</li>
+      <li>Maintain the security of your account credentials</li>
+      <li>Promptly notify us of any unauthorised access to your account</li>
+      <li>Take full responsibility for all activity that occurs under your account</li>
+      <li>Not create multiple accounts or share your account with others</li>
+      <li>⚡ Not create fake accounts to generate fraudulent EV charging verifications or Host Charger bookings</li>
+    </ul>
+  </div>
+
+  <!-- 4. Subscriptions -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">💳</div>
+      <h2>4. Subscription Plans &amp; Payment</h2>
+    </div>
+    <p>Otzoo offers the following annual subscription plans for Business Owners:</p>
+    <div class="table-container">
+      <table>
+        <tr><th>Plan</th><th>Price (India)</th><th>Billing</th><th>Access</th></tr>
+        <tr><td><strong>Free</strong></td><td>₹0</td><td>—</td><td>Basic listing features</td></tr>
+        <tr><td><strong>Starter</strong></td><td>₹149/year</td><td>Annual</td><td>Enhanced listing features</td></tr>
+        <tr><td><strong>Growth</strong></td><td>₹399/year</td><td>Annual</td><td>Advanced features + analytics</td></tr>
+        <tr><td><strong>Pro</strong></td><td>₹499/year</td><td>Annual</td><td>Full feature access + priority support</td></tr>
+        <tr><td><strong>Otzoo Elite</strong></td><td>₹9,999/year</td><td>Annual</td><td>Full feature + priority visibility + elite badge</td></tr>
+        <tr><td><strong>Otzoo Premium</strong></td><td>₹49,999/year</td><td>Annual</td><td>Highest priority visibility + premium badge</td></tr>
+      </table>
+    </div>
+    <p style="margin-top:14px;">Payments are processed securely by <strong>Razorpay & Cashfree</strong>.</p>
+    <div class="danger-box">
+      <p>🚫 NO REFUND POLICY: All subscription payments made to Otzoo are final and non-refundable under any circumstances. By completing payment, you expressly acknowledge and agree to this no-refund policy.</p>
+    </div>
+  </div>
+
+  <!-- 5. Subscription Terms -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">📅</div>
+      <h2>5. Subscription Duration, Renewal &amp; Cancellation</h2>
+    </div>
+    <ul>
+      <li>All paid subscriptions are valid for one (1) calendar year from the date of activation</li>
+      <li>Subscriptions do <strong>not</strong> auto-renew — you must manually renew before expiry</li>
+      <li>Upon expiry, your account will revert to the Free plan automatically — your listing data will be retained</li>
+      <li>Otzoo reserves the right to modify subscription pricing with at least 30 days' advance notice</li>
+    </ul>
+  </div>
+
+  <!-- 6. EV Charging Terms — NEW -->
+  <div class="section ev-section">
+    <div class="section-header">
+      <div class="section-icon ev-icon">⚡</div>
+      <h2 class="ev-title">6. OTZOO Energy — EV Charging Terms <span class="ev-tag">NEW</span></h2>
+    </div>
+    <p>By using OTZOO Energy EV charging features, you agree to the following additional terms:</p>
+
+    <p><strong>6.1 EV Station Data Accuracy</strong></p>
+    <ul class="ev-list">
+      <li>EV station data on OTZOO is sourced from Open Charge Map (OCM), Government EV datasets, CPO partners via OCPI 2.2.1, and community host registrations</li>
+      <li>OTZOO does not guarantee the real-time accuracy, availability, or operational status of any EV station</li>
+      <li>Station information may be outdated, incomplete, or temporarily incorrect — always verify station status before commencing a journey</li>
+      <li>OTZOO's Reliability Score is community-driven and indicative only — it is not a guarantee of station functionality</li>
+    </ul>
+
+    <p style="margin-top:14px;"><strong>6.2 Slot Booking & Payment</strong></p>
+    <ul class="ev-list">
+      <li>EV charging slot bookings are confirmed upon successful payment via Razorpay or Cashfree</li>
+      <li>Booking amounts are determined by the station operator (CPO or Host) and displayed before confirmation</li>
+      <li>OTZOO facilitates the booking — it is not responsible for the actual charging session quality or equipment performance</li>
+      <li>In case of station unavailability after confirmed booking, please contact us — refund decisions are at OTZOO's discretion</li>
+    </ul>
+
+    <div class="danger-box">
+      <p>🚫 EV CHARGING PAYMENT — NO AUTO-REFUND: EV charging slot booking payments are non-refundable once the slot time has commenced. Cancellations made at least 2 hours before the slot start time may be eligible for a credit (not cash refund) at OTZOO's sole discretion.</p>
+    </div>
+
+    <p style="margin-top:14px;"><strong>6.3 Community Verification System</strong></p>
+    <ul class="ev-list">
+      <li>You may submit station verifications (working/broken/queue present) through the app</li>
+      <li>Submitting false or malicious verifications to manipulate a station's Reliability Score is strictly prohibited</li>
+      <li>Repeated false reporting may result in account suspension and forfeiture of any pending commissions</li>
+      <li>OTZOO reserves the right to remove or discount any verification deemed unreliable</li>
+    </ul>
+
+    <p style="margin-top:14px;"><strong>6.4 EV Route Planner</strong></p>
+    <ul class="ev-list">
+      <li>The EV Route Planner uses OSRM (free open-source routing) and Nominatim (OpenStreetMap geocoding) — OTZOO does not guarantee route accuracy</li>
+      <li>Charging stop suggestions along routes are based on proximity to the route (within 10km) and database availability — not real-time reservation</li>
+      <li>Users must independently verify charging stop availability before relying on route suggestions for long-distance travel</li>
+    </ul>
+
+    <p style="margin-top:14px;"><strong>6.5 OCPI & Beckn/UEI Integrations</strong></p>
+    <ul class="ev-list">
+      <li>OTZOO operates an OCPI 2.2.1 eMSP/CPO server and Beckn/UEI BAP+BPP server for CPO integrations</li>
+      <li>Station availability, session data, and pricing from CPO partners are provided by those partners — OTZOO is not responsible for CPO data accuracy</li>
+      <li>OTZOO is not liable for interruptions in CPO partner services, OCPI protocol failures, or Beckn/UEI network downtime</li>
+      <li>Integration with specific CPOs (Pulse Energy, Statiq, Tata Power EV, etc.) may be subject to additional CPO-specific terms</li>
+    </ul>
+
+    <div class="ev-highlight">
+      <p>⚡ OTZOO Energy is protocol-first: OCPI 2.2.1 + Beckn/UEI. No proprietary lock-in. We are not a CPO — we are an eMSP aggregating India's charging networks into one unified platform.</p>
+    </div>
+  </div>
+
+  <!-- 7. Host Your Charger — NEW -->
+  <div class="section ev-section">
+    <div class="section-header">
+      <div class="section-icon ev-icon">🏠</div>
+      <h2 class="ev-title">7. Host Your Charger — Peer-to-Peer Charging Terms <span class="ev-tag">NEW</span></h2>
+    </div>
+    <p>The "Earn From Your Charger" / "Host Your Charger" feature allows individual homeowners to list their personal EV chargers for peer-to-peer charging. By listing a charger, you agree to the following:</p>
+
+    <p><strong>7.1 Host Eligibility & Responsibilities</strong></p>
+    <ul class="ev-list">
+      <li>You must be at least 18 years of age to register as a Host</li>
+      <li>You must own or have explicit written permission to use and share the charger listed</li>
+      <li>All charger details (type, power rating, connector, price, availability) must be accurate and kept up to date</li>
+      <li>You are responsible for ensuring your charger is safe, functional, and compliant with applicable electrical safety standards</li>
+      <li>You must have adequate power supply (16A or 32A circuit) for the charger type listed</li>
+      <li>You must be available (or have a trusted person available) during your listed availability hours to facilitate bookings</li>
+      <li>OTZOO is not responsible for any electrical damage, accidents, or disputes arising from host charger use</li>
+    </ul>
+
+    <p style="margin-top:14px;"><strong>7.2 Host Earnings & Commission</strong></p>
+    <ul class="ev-list">
+      <li>Hosts receive payment from Booking Users via UPI — directly to the UPI ID registered during host registration</li>
+      <li>OTZOO charges a 10% platform commission on each completed booking session</li>
+      <li>The commission is deducted before payment is released to the Host's UPI ID</li>
+      <li>OTZOO reserves the right to adjust the commission rate with 30 days' advance notice</li>
+      <li>Hosts are responsible for declaring and paying applicable income tax on earnings received</li>
+    </ul>
+
+    <p style="margin-top:14px;"><strong>7.3 Car Verification for Host Charger Bookings</strong></p>
+    <ul class="ev-list">
+      <li>Hosts may require Booking Users to submit their vehicle registration number and ID proof before approving a booking</li>
+      <li>Hosts must use car verification data solely for the purpose of verifying the Booking User's identity before the charging session</li>
+      <li>Hosts are strictly prohibited from storing, copying, photographing, sharing, or misusing any car verification data submitted by Booking Users</li>
+      <li>Misuse of car verification data by a Host will result in immediate account suspension and potential legal action</li>
+      <li>Car verification data submitted by Booking Users is automatically deleted from OTZOO servers after 30 days</li>
+    </ul>
+
+    <p style="margin-top:14px;"><strong>7.4 Host Prohibited Conduct</strong></p>
+    <ul class="cross-list">
+      <li>Listing a charger you do not own or have permission to use</li>
+      <li>Providing false charger specifications (power rating, connector type, price)</li>
+      <li>Refusing confirmed bookings without valid reason (repeated refusals may result in listing removal)</li>
+      <li>Misusing or storing Booking User car verification documents</li>
+      <li>Accepting cash payments and bypassing the OTZOO booking system to avoid platform commission</li>
+      <li>Listing chargers at locations other than your registered GPS coordinates</li>
+    </ul>
+
+    <div class="warning-box">
+      <p>⚠️ OTZOO is not an insurer. Hosts are advised to ensure their home/property insurance covers commercial activities before listing. OTZOO is not liable for any damage to vehicles, property, or persons arising from host charger use.</p>
+    </div>
+  </div>
+
+  <!-- 8. Business Listings -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🏪</div>
+      <h2>8. Business Listings &amp; Content</h2>
+    </div>
+    <p>Business Owners may create listings on Otzoo subject to the following conditions:</p>
+    <ul>
+      <li>All listing information must be accurate, truthful, and kept up to date</li>
+      <li>You must have the legal right to list and operate the business described</li>
+      <li>Listing content must not be misleading, defamatory, or violate any third-party rights</li>
+      <li>Adult content, illegal services, or prohibited goods may not be listed on Otzoo</li>
+    </ul>
+    <p>By uploading content to Otzoo, you grant Otzoo a non-exclusive, royalty-free, worldwide licence to display, reproduce, and distribute that content within the application.</p>
+  </div>
+
+  <!-- 9. Growth Partner Program -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🤝</div>
+      <h2>9. Otzoo Growth Partner Program</h2>
+    </div>
+    <p>The Otzoo Growth Partner Program allows approved individuals to earn commissions by referring businesses to subscribe to paid Otzoo plans.</p>
+
+    <p><strong>9.1 Eligibility</strong></p>
+    <ul>
+      <li>Applicants must be at least 18 years of age with a valid bank account</li>
+      <li>Valid government-issued identity proof is required</li>
+      <li>Otzoo reserves the sole right to approve or reject any application</li>
+    </ul>
+
+    <p style="margin-top:12px;"><strong>9.2 Commission Structure</strong></p>
+    <div class="table-container">
+      <table>
+        <tr><th>Plan</th><th>Plan Price</th><th>Growth Share</th></tr>
+        <tr><td><strong>Starter</strong></td><td>₹149/year</td><td>₹50 per subscription</td></tr>
+        <tr><td><strong>Growth</strong></td><td>₹399/year</td><td>₹120 per subscription</td></tr>
+        <tr><td><strong>Pro</strong></td><td>₹499/year</td><td>₹150 per subscription</td></tr>
+      </table>
+    </div>
+
+    <p style="margin-top:12px;"><strong>9.3 Payout Policy</strong></p>
+    <ul>
+      <li>Minimum payout threshold: ₹500</li>
+      <li>Payouts processed within 3–5 business days of admin approval</li>
+      <li>Payouts transferred only to the bank account registered at application</li>
+      <li>Otzoo reserves the right to withhold payouts pending fraud investigation</li>
+    </ul>
+
+    <div class="danger-box">
+      <p>🚫 Fraudulent referral activity will result in immediate account suspension, forfeiture of all commissions, and potential legal action.</p>
+    </div>
+  </div>
+
+  <!-- 10. Prohibited Conduct -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🚫</div>
+      <h2>10. Prohibited Conduct</h2>
+    </div>
+    <p>The following activities are strictly prohibited across all OTZOO features:</p>
+    <ul class="cross-list">
+      <li>Self-referrals or fake account creation for fraudulent commissions</li>
+      <li>Submitting false EV station verifications to manipulate Reliability Scores</li>
+      <li>Creating fake EV charging bookings to generate fraudulent host earnings</li>
+      <li>Misusing or storing car verification documents submitted by Booking Users</li>
+      <li>Listing EV chargers you do not own or have permission to use</li>
+      <li>Bypassing OTZOO's payment system for host charger sessions to avoid platform commission</li>
+      <li>Uploading or sharing illegal, defamatory, obscene, or harmful content</li>
+      <li>Using automated bots or scrapers to extract data without written permission</li>
+      <li>Reverse-engineering or decompiling any part of the application</li>
+      <li>Violating any applicable local, national, or international laws</li>
+    </ul>
+  </div>
+
+  <!-- 11. Suspension & Termination -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">⛔</div>
+      <h2>11. Account Suspension &amp; Termination</h2>
+    </div>
+    <p>Otzoo reserves the right to suspend or permanently terminate any account at its sole discretion, including for:</p>
+    <ul>
+      <li>Violation of any provision of these Terms of Service</li>
+      <li>Fraudulent activity, misrepresentation, or provision of false information</li>
+      <li>⚡ False EV station verifications or fake booking abuse</li>
+      <li>⚡ Misuse of car verification data by a Host</li>
+      <li>⚡ Repeated booking cancellations or unavailability as a Host without valid reason</li>
+      <li>Abusive conduct towards Otzoo staff or other users</li>
+      <li>Legal requirements or court orders</li>
+    </ul>
+    <div class="warning-box">
+      <p>⚠️ Otzoo is not obligated to provide reasons for account suspension. No refund of subscription or EV booking fees will be made in the event of account suspension due to policy violations.</p>
+    </div>
+  </div>
+
+  <!-- 12. Intellectual Property -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">©️</div>
+      <h2>12. Intellectual Property</h2>
+    </div>
+    <p>All intellectual property rights in the Otzoo application — including OTZOO Energy, the Reliability Score system, Host Your Charger platform, and OCPI/Beckn integration architecture — are owned exclusively by Otzoo. Nothing in these Terms grants you any right to use Otzoo's intellectual property without express written permission.</p>
+    <p>⚡ EV station data sourced from Open Charge Map is licensed under Creative Commons Attribution 4.0 International (CC BY 4.0). Government EV data is public domain. OTZOO's proprietary additions (Reliability Score, community verifications, host network) remain OTZOO's intellectual property.</p>
+  </div>
+
+  <!-- 13. Disclaimer -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">⚠️</div>
+      <h2>13. Disclaimer of Warranties</h2>
+    </div>
+    <p>The Otzoo application is provided on an <strong>"as is" and "as available"</strong> basis, without warranties of any kind. This includes:</p>
+    <ul>
+      <li>⚡ No guarantee that any EV station listed will be operational, available, or compatible with your vehicle when you arrive</li>
+      <li>⚡ No guarantee of route planner accuracy or charging stop availability for long-distance journeys</li>
+      <li>⚡ No guarantee that CPO partner (Pulse Energy, Statiq, etc.) integrations will be uninterrupted</li>
+      <li>⚡ No guarantee that Host Charger sessions will complete without technical issues</li>
+      <li>No guarantee of specific commission earnings for Growth Partners</li>
+      <li>No warranty of uninterrupted, error-free, or secure operation of the platform</li>
+    </ul>
+  </div>
+
+  <!-- 14. Limitation of Liability -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🛡️</div>
+      <h2>14. Limitation of Liability</h2>
+    </div>
+    <p>To the maximum extent permitted by applicable law, Otzoo shall not be liable for:</p>
+    <ul>
+      <li>⚡ Any damage to your vehicle, battery, or electrical systems arising from use of any EV station listed on OTZOO</li>
+      <li>⚡ Any injury, property damage, or loss arising from host charger use</li>
+      <li>⚡ Range anxiety, breakdowns, or accidents arising from reliance on OTZOO's route planner or station data</li>
+      <li>⚡ Session interruptions or failures caused by CPO partner network issues</li>
+      <li>Any indirect, incidental, special, or consequential damages</li>
+      <li>Loss of profits, revenue, data, or business opportunities</li>
+      <li>Actions taken by third-party payment processors or banks</li>
+    </ul>
+    <p>In no event shall OTZOO's total liability exceed the amount you paid to OTZOO in the 3 months immediately preceding the event giving rise to the claim.</p>
+  </div>
+
+  <!-- 15. Dispute Resolution -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🏛️</div>
+      <h2>15. Dispute Resolution</h2>
+    </div>
+    <p><strong>15.1 Informal Resolution:</strong> Contact otzooofficial@gmail.com first. OTZOO will respond within 30 days.</p>
+    <p><strong>15.2 EV Charging Disputes:</strong> For disputes regarding EV booking payments, Host Charger earnings, or station reliability scores — contact us within 7 days of the incident. OTZOO's internal decision is final at platform level.</p>
+    <p><strong>15.3 Governing Law:</strong> These Terms are governed by the laws of India, specifically Madhya Pradesh. Disputes shall be subject to the exclusive jurisdiction of courts in Morena, Madhya Pradesh, India.</p>
+    <div class="highlight">
+      <p>📧 For disputes: otzooofficial@gmail.com — Subject: "Dispute — [Feature] — [Your Account Email]"</p>
+    </div>
+  </div>
+
+  <!-- 16. Modifications -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🔄</div>
+      <h2>16. Modifications to These Terms</h2>
+    </div>
+    <p>Otzoo reserves the right to modify these Terms at any time. We will notify you at least 7 days before material changes take effect. For changes to EV charging fees, Host commission rates, or Growth Partner commission structure, we will provide at least 30 days' advance notice.</p>
+    <p>This document was updated in July 2026 to include OTZOO Energy EV Charging terms, Host Your Charger program terms, car verification data terms, OCPI/Beckn protocol terms, and related liability disclaimers.</p>
+  </div>
+
+  <!-- 17. General Provisions -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">📜</div>
+      <h2>17. General Provisions</h2>
+    </div>
+    <ul>
+      <li><strong>Severability:</strong> If any provision is found invalid, remaining provisions continue in full force.</li>
+      <li><strong>Entire Agreement:</strong> These Terms, together with the Privacy Policy, constitute the entire agreement between you and Otzoo.</li>
+      <li><strong>Waiver:</strong> Failure to enforce any right shall not be deemed a waiver.</li>
+      <li><strong>Assignment:</strong> You may not assign your rights without OTZOO's prior written consent.</li>
+      <li><strong>Force Majeure:</strong> OTZOO shall not be liable for failures due to causes beyond its control — including CPO network outages, government EV policy changes, or power grid failures.</li>
+      <li><strong>Language:</strong> These Terms are prepared in English. In case of conflict, the English version shall prevail.</li>
+    </ul>
+  </div>
+
+  <!-- Contact -->
+  <div class="contact-section">
+    <h2>📬 Contact Us</h2>
+    <p>For questions about these Terms, EV charging disputes, or legal matters:</p>
+    <a href="mailto:otzooofficial@gmail.com" class="contact-email">otzooofficial@gmail.com</a>
+    <p style="margin-top: 16px; font-size: 12px;">
+      Otzoo · Morena, Madhya Pradesh, India<br>
+      Legal queries: include "Legal — Terms of Service" in subject line.
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 <span>Otzoo</span> — Real-Time Local Discovery & EV Charging Platform. All rights reserved.</p>
+  <p style="margin-top: 6px;">Made with ❤️ in India 🇮🇳 &nbsp;|&nbsp; <a href="index.html" style="color:#4527A0;text-decoration:none;font-weight:600;">Privacy Policy</a> &nbsp;|&nbsp; <a href="otzoo_energy.html" style="color:#00C853;text-decoration:none;font-weight:600;">⚡ OTZOO Energy</a></p>
+</footer>
+
+</body>
+</html>
